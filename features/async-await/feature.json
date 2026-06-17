@@ -1,0 +1,38 @@
+{
+  "slug": "async-await",
+  "title": "Async and await",
+  "shortTitle": "Async and await",
+  "versions": {
+    "csharp": "5.0",
+    "dotnet": "4.5"
+  },
+  "summary": "content/summary.md",
+  "intro": {
+    "path": "content/intro.md"
+  },
+  "sections": [
+    {
+      "title": "Why it matters",
+      "path": "content/sections/why-it-matters.md"
+    },
+    {
+      "title": "Cautions",
+      "path": "content/sections/cautions.md"
+    }
+  ],
+  "learnMore": {
+    "label": "Asynchronous programming (Microsoft Learn)",
+    "url": "https://learn.microsoft.com/dotnet/csharp/asynchronous-programming/"
+  },
+  "examples": [
+    {
+      "id": "async-api-call",
+      "title": "Awaiting an I/O-bound operation",
+      "description": "Async methods let you keep the thread free while waiting on I/O-heavy work like HTTP calls or file access.",
+      "sampleLanguageVersion": "5.0",
+      "snippets": {
+        "code": "async-await/http-call.cs"
+      }
+    }
+  ]
+}

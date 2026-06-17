@@ -295,3 +295,10 @@ Feature samples must stay accurate to the feature’s introduction-era versions 
 - Extend `scripts/check-var-feature.mjs` with deterministic assertions for version-pill template hooks, rendered footer pills, and CSS contracts.
 - Require explicit C#/.NET pill markers (`feature-pill-csharp`, `feature-pill-dotnet`) in template/CSS/rendered output.
 - Keep validation lightweight and integrated in existing `npm run build` / `check:var` workflow.
+
+### 2026-06-17 — Homepage snippet cleanup preserves valid code-block structure with highlighting
+**Source:** `decisions/inbox/lois_lane-kept-homepage-snippet-markup-while-adding-syntax-h.md`
+
+- Keep homepage snippet markup in the existing `<pre><code>...</code></pre>` structure to preserve renderer/check compatibility.
+- Apply syntax highlighting via a dedicated `highlightCodeInline` Eleventy filter that returns highlighted inner HTML.
+- Preserve snippet indentation/tab behavior while improving readability through token highlighting.

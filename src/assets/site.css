@@ -162,6 +162,15 @@ h3 {
   margin: 0;
 }
 
+.newer-capabilities-list {
+  list-style: none;
+  padding: 0;
+}
+
+.newer-capabilities-list li + li {
+  margin-top: 1rem;
+}
+
 .feature-pill {
   display: inline-flex;
   align-items: center;
@@ -193,6 +202,7 @@ h3 {
   max-width: 100%;
   grid-template-columns: minmax(0, 1fr);
   overflow-x: hidden;
+  gap: 0.75rem;
 }
 
 .home-feature-snippet-grid .feature-snippet-card {
@@ -202,10 +212,16 @@ h3 {
 }
 
 .home-feature-snippet-title {
-  margin-top: 0;
+  margin: 0 0 0.45rem;
   text-wrap: balance;
   overflow-wrap: anywhere;
   word-break: break-word;
+}
+
+.home-feature-snippet-description {
+  display: block;
+  margin: 0 0 0.75rem;
+  color: var(--muted);
 }
 
 .feature-snippet-card pre {
@@ -219,13 +235,15 @@ h3 {
 .feature-snippet-card code {
   display: block;
   white-space: pre;
+  tab-size: 4;
   overflow-wrap: normal;
   word-break: normal;
 }
 
 .home-feature-snippet-card code {
-  overflow-wrap: anywhere;
-  word-break: break-word;
+  white-space: pre;
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
 @media (max-width: 900px) {

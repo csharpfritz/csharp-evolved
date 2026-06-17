@@ -32,3 +32,6 @@ Initial backend/sample context seeded.
 ## 2026-06-17T11:19:12.353-04:00
 - Scribe merged your string-interpolation scaffold decision (manifest, intro-era versions, snippet wiring) into `decisions.md`.
 - Orchestration record saved at `orchestration-log/2026-06-17T11-19-12.353-04-00-clark.md`.
+## 2026-06-17T15:13:54.804-04:00
+- Delivered revision fix for invalid `<p><pre>` wrapping and snippet rendering regression during homepage snippet cleanup.
+- Fix unblocked final verification, which then passed all requirements.

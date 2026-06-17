@@ -62,3 +62,11 @@ Initial frontend context seeded.
 ## 2026-06-17T11:53:24.502-04:00
 - Scribe merged your feature-card version-pill footer decision into `decisions.md`.
 - Orchestration record saved at `orchestration-log/2026-06-17T11-53-24.502-04-00-lois.md`.
+## 2026-06-17T15:13:54.804-04:00
+- Completed homepage snippet cleanup updates covering spacing/description/highlighting/indentation concerns.
+- Scribe merged your resulting decision note into `decisions.md` and recorded orchestration/session logs for the batch.
+
+## 2026-06-17T15:27:40.998-04:00
+- Delivered feature detail page top-version metadata as feature-pill notation.
+- Removed numeric leaders from the newer capabilities UI while preserving existing structure and behavior.
+- Scribe logged orchestration/session outcomes for this sync batch.

@@ -15,10 +15,9 @@ eleventyComputed:
 
 <article>
   <h1>{{ feature.title }}</h1>
-  <p>
-    <strong>{{ feature.versions.csharp.label }}</strong>
-    ·
-    <strong>{{ feature.versions.dotnet.label }}</strong>
+  <p class="feature-version-pills" aria-label="Version support">
+    <span class="feature-pill feature-pill-csharp">{{ feature.versions.csharp.label }}</span>
+    <span class="feature-pill feature-pill-dotnet">{{ feature.versions.dotnet.label }}</span>
   </p>
   <p class="lead">{{ feature.summary | renderMarkdownInline | safe }}</p>
 
@@ -86,7 +85,7 @@ eleventyComputed:
   {% if feature.newerCapabilities and feature.newerCapabilities.length %}
     <section aria-labelledby="newer-capabilities-heading">
       <h2 id="newer-capabilities-heading">Newer capabilities</h2>
-      <ol>
+      <ol class="newer-capabilities-list">
         {% for capability in feature.newerCapabilities %}
           <li>
             <article class="card">

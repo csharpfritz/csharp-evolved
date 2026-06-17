@@ -1,0 +1,38 @@
+{
+  "slug": "records",
+  "title": "Records",
+  "shortTitle": "Records",
+  "versions": {
+    "csharp": "9.0",
+    "dotnet": "5.0"
+  },
+  "summary": "content/summary.md",
+  "intro": {
+    "path": "content/intro.md"
+  },
+  "sections": [
+    {
+      "title": "Why it matters",
+      "path": "content/sections/why-it-matters.md"
+    },
+    {
+      "title": "Cautions",
+      "path": "content/sections/cautions.md"
+    }
+  ],
+  "learnMore": {
+    "label": "Record types (Microsoft Learn)",
+    "url": "https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/record"
+  },
+  "examples": [
+    {
+      "id": "record-and-with-expression",
+      "title": "Modeling immutable data with a record",
+      "description": "Records are concise reference types with value-based equality and built-in support for non-destructive updates.",
+      "sampleLanguageVersion": "9.0",
+      "snippets": {
+        "code": "records/weather-reading.cs"
+      }
+    }
+  ]
+}

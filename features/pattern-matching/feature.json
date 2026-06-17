@@ -1,0 +1,38 @@
+{
+  "slug": "pattern-matching",
+  "title": "Pattern matching",
+  "shortTitle": "Pattern matching",
+  "versions": {
+    "csharp": "9.0",
+    "dotnet": "5.0"
+  },
+  "summary": "content/summary.md",
+  "intro": {
+    "path": "content/intro.md"
+  },
+  "sections": [
+    {
+      "title": "Why it matters",
+      "path": "content/sections/why-it-matters.md"
+    },
+    {
+      "title": "Cautions",
+      "path": "content/sections/cautions.md"
+    }
+  ],
+  "learnMore": {
+    "label": "Pattern matching (Microsoft Learn)",
+    "url": "https://learn.microsoft.com/dotnet/csharp/fundamentals/functional/pattern-matching"
+  },
+  "examples": [
+    {
+      "id": "relational-and-logical-patterns",
+      "title": "Branching with relational and logical patterns",
+      "description": "Modern pattern matching lets you describe ranges and combinations directly in the branch expression.",
+      "sampleLanguageVersion": "9.0",
+      "snippets": {
+        "code": "pattern-matching/temperature-description.cs"
+      }
+    }
+  ]
+}

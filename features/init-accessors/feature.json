@@ -1,0 +1,38 @@
+{
+  "slug": "init-accessors",
+  "title": "Init accessors",
+  "shortTitle": "Init accessors",
+  "versions": {
+    "csharp": "9.0",
+    "dotnet": "5.0"
+  },
+  "summary": "content/summary.md",
+  "intro": {
+    "path": "content/intro.md"
+  },
+  "sections": [
+    {
+      "title": "Why it matters",
+      "path": "content/sections/why-it-matters.md"
+    },
+    {
+      "title": "Cautions",
+      "path": "content/sections/cautions.md"
+    }
+  ],
+  "learnMore": {
+    "label": "init accessors (Microsoft Learn)",
+    "url": "https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/init"
+  },
+  "examples": [
+    {
+      "id": "immutable-object-construction",
+      "title": "Creating an object that can only be set during initialization",
+      "description": "Init-only setters keep object construction flexible while preventing mutation after the initializer finishes.",
+      "sampleLanguageVersion": "9.0",
+      "snippets": {
+        "code": "init-accessors/customer.cs"
+      }
+    }
+  ]
+}

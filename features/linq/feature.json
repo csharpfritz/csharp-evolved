@@ -1,0 +1,38 @@
+{
+  "slug": "linq",
+  "title": "LINQ",
+  "shortTitle": "LINQ",
+  "versions": {
+    "csharp": "3.0",
+    "dotnet": "3.5"
+  },
+  "summary": "content/summary.md",
+  "intro": {
+    "path": "content/intro.md"
+  },
+  "sections": [
+    {
+      "title": "Why it matters",
+      "path": "content/sections/why-it-matters.md"
+    },
+    {
+      "title": "Cautions",
+      "path": "content/sections/cautions.md"
+    }
+  ],
+  "learnMore": {
+    "label": "LINQ (Microsoft Learn)",
+    "url": "https://learn.microsoft.com/dotnet/csharp/linq/"
+  },
+  "examples": [
+    {
+      "id": "filter-project-sort",
+      "title": "Filtering and projecting data",
+      "description": "LINQ turns sequence processing into a readable pipeline instead of nested loops and temp variables.",
+      "sampleLanguageVersion": "3.0",
+      "snippets": {
+        "code": "linq/filter-project-sort.cs"
+      }
+    }
+  ]
+}

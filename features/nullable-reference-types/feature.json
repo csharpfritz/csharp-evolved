@@ -1,0 +1,38 @@
+{
+  "slug": "nullable-reference-types",
+  "title": "Nullable reference types",
+  "shortTitle": "Nullable refs",
+  "versions": {
+    "csharp": "8.0",
+    "dotnet": "3.0"
+  },
+  "summary": "content/summary.md",
+  "intro": {
+    "path": "content/intro.md"
+  },
+  "sections": [
+    {
+      "title": "Why it matters",
+      "path": "content/sections/why-it-matters.md"
+    },
+    {
+      "title": "Cautions",
+      "path": "content/sections/cautions.md"
+    }
+  ],
+  "learnMore": {
+    "label": "Nullable reference types (Microsoft Learn)",
+    "url": "https://learn.microsoft.com/dotnet/csharp/nullable-references"
+  },
+  "examples": [
+    {
+      "id": "nullable-guard",
+      "title": "Marking a reference as optional",
+      "description": "Nullable annotations force you to model absence explicitly instead of assuming every reference is populated.",
+      "sampleLanguageVersion": "8.0",
+      "snippets": {
+        "code": "nullable-reference-types/nullable-guard.cs"
+      }
+    }
+  ]
+}

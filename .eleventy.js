@@ -40,14 +40,24 @@ function renderHighlightedCode(code, language) {
   }
 
   if (language && hljs.getLanguage(language)) {
-    let highlighted = hljs.highlight(code, { language }).value;
-    if (language === "csharp") {
-      highlighted = decorateCSharpMarkup(highlighted);
-    }
-    return `<pre><code class="hljs language-${language}">${highlighted}</code></pre>`;
+    return hljs.highlight(code, { language }).value;
   }
 
-  return `<pre><code class="hljs">${escapeHtml(code)}</code></pre>`;
+  return escapeHtml(code);
+}
+
+function renderHighlightedCodeBlock(code, language) {
+  const highlightedCode = renderHighlightedCode(code, language);
+  if (!highlightedCode) {
+    return "";
+  }
+
+  if (language && hljs.getLanguage(language)) {
+    const decorated = language === "csharp" ? decorateCSharpMarkup(highlightedCode) : highlightedCode;
+    return `<pre><code class="hljs language-${language}">${decorated}</code></pre>`;
+  }
+
+  return `<pre><code class="hljs">${highlightedCode}</code></pre>`;
 }
 
 module.exports = function (eleventyConfig) {
@@ -55,12 +65,17 @@ module.exports = function (eleventyConfig) {
     html: true,
     linkify: true,
     typographer: true,
-    highlight: (code, language) => renderHighlightedCode(code, language)
+    highlight: (code, language) => renderHighlightedCodeBlock(code, language)
   });
 
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addFilter("highlightCode", (code, language = "csharp") =>
-    renderHighlightedCode(code, language)
+    renderHighlightedCodeBlock(code, language)
+  );
+  eleventyConfig.addFilter("highlightCodeInline", (code, language = "csharp") =>
+    language === "csharp"
+      ? decorateCSharpMarkup(renderHighlightedCode(code, language))
+      : renderHighlightedCode(code, language)
   );
   eleventyConfig.addFilter("renderMarkdown", (content) => md.render(content || ""));
   eleventyConfig.addFilter("renderMarkdownInline", (content) =>

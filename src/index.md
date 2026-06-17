@@ -1,6 +1,7 @@
 ---
 title: Home
 layout: layout.njk
+templateEngineOverride: njk
 ---
 
 <section class="hero">
@@ -29,21 +30,23 @@ layout: layout.njk
 </section>
 
 {% if homeFeatures and homeFeatures.length %}
-## Feature snippets
-
-Browse every feature at a glance in deterministic shuffled order.
+<!-- ## Feature snippets -->
+<h2>Feature snippets</h2>
+<p>Browse every feature at a glance in deterministic shuffled order.</p>
 
 <section class="grid feature-snippet-grid home-feature-snippet-grid" aria-label="Feature snippets">
-  {% for feature in homeFeatures %}
-    {% set example = feature.examples[0] %}
-    <article class="card feature-snippet-card home-feature-snippet-card">
-      <h3 class="home-feature-snippet-title"><a href="/features/{{ feature.slug }}/">{{ feature.title }}</a></h3>
-      {% if example and (example.afterCode or example.code or example.beforeCode) %}
-        <pre><code>{{ (example.afterCode or example.code or example.beforeCode) | escape }}</code></pre>
-      {% else %}
-        <p>{{ feature.summary }}</p>
-      {% endif %}
-    </article>
-  {% endfor %}
+{% for feature in homeFeatures %}
+{% set example = feature.examples[0] %}
+{% set snippetDescription = (example and example.description) or feature.summary %}
+  <article class="card feature-snippet-card home-feature-snippet-card">
+    <h3 class="home-feature-snippet-title"><a href="/features/{{ feature.slug }}/">{{ feature.title }}</a></h3>
+{% if snippetDescription %}
+    <p class="home-feature-snippet-description">{{ snippetDescription | renderMarkdownInline | safe }}</p>
+{% endif %}
+{% if example and (example.afterCode or example.code or example.beforeCode) %}
+    <pre><code>{{ (example.afterCode or example.code or example.beforeCode) | highlightCodeInline("csharp") | safe }}</code></pre>
+{% endif %}
+  </article>
+{% endfor %}
 </section>
 {% endif %}
