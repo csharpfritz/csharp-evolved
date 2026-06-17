@@ -1,0 +1,1 @@
+File-scoped namespaces only work when there is a single namespace per file. If you need multiple namespaces in one file (an uncommon but valid pattern), you must use traditional block-scoped namespaces. Additionally, file-scoped namespaces cannot be mixed with block-scoped namespaces in the same file, which may require refactoring legacy code.

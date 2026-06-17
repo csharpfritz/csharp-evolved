@@ -1,0 +1,1 @@
+While tuples are convenient, they can reduce code clarity if overused for complex data models. Prefer explicit types (classes or records) when the data structure has semantic meaning or requires behavior. Be aware that tuple element names are optional and are lost at runtime for ValueTuples, which can affect serialization and reflection scenarios.

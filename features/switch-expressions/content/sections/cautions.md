@@ -1,0 +1,1 @@
+While switch expressions are powerful, they can become hard to read when patterns become too complex or deeply nested. For simple two-branch conditions, ternary operators may remain more appropriate. Also note that switch expressions require exhaustive pattern coverage or an explicit discard pattern (_) to compile, which differs from statement-based switches.

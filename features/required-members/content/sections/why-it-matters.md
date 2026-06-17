@@ -1,0 +1,1 @@
+Required members provide compile-time safety for object initialization. They prevent runtime errors from incomplete objects and eliminate the need for defensive null-checking in constructors or factory methods. This is especially valuable for APIs, DTOs, and domain models where certain data must always be present.

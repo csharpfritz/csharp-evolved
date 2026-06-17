@@ -1,0 +1,1 @@
+Global using directives allow you to specify imports that automatically apply to all files in your project, reducing repetitive using statements and improving code organization at scale.

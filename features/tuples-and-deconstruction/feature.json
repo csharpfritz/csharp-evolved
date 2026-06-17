@@ -1,0 +1,48 @@
+{
+  "slug": "tuples-and-deconstruction",
+  "title": "Tuples and Deconstruction",
+  "shortTitle": "Tuples",
+  "versions": {
+    "csharp": "7.0",
+    "dotnet": "4.7"
+  },
+  "summary": "content/summary.md",
+  "intro": {
+    "path": "content/intro.md"
+  },
+  "sections": [
+    {
+      "title": "Why it matters",
+      "path": "content/sections/why-it-matters.md"
+    },
+    {
+      "title": "Cautions",
+      "path": "content/sections/cautions.md"
+    }
+  ],
+  "learnMore": {
+    "label": "Tuples (Microsoft Learn)",
+    "url": "https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/value-tuples"
+  },
+  "examples": [
+    {
+      "id": "tuple-basics",
+      "title": "Creating and unpacking tuples",
+      "description": "Tuples allow you to group multiple values together and deconstruct them into individual variables with a single expression.",
+      "sampleLanguageVersion": "7.0",
+      "snippets": {
+        "code": "tuples-and-deconstruction/tuple-basics.cs"
+      }
+    },
+    {
+      "id": "method-multiple-returns",
+      "title": "Returning multiple values from methods",
+      "description": "Use tuples to return multiple values from a method without creating a separate class or using out parameters.",
+      "sampleLanguageVersion": "7.0",
+      "snippets": {
+        "code": "tuples-and-deconstruction/method-returns.cs"
+      }
+    }
+  ],
+  "newerCapabilities": []
+}

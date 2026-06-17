@@ -1,0 +1,48 @@
+{
+  "slug": "raw-string-literals",
+  "title": "Raw String Literals",
+  "shortTitle": "Raw Strings",
+  "versions": {
+    "csharp": "11.0",
+    "dotnet": "7.0"
+  },
+  "summary": "content/summary.md",
+  "intro": {
+    "path": "content/intro.md"
+  },
+  "sections": [
+    {
+      "title": "Why it matters",
+      "path": "content/sections/why-it-matters.md"
+    },
+    {
+      "title": "Cautions",
+      "path": "content/sections/cautions.md"
+    }
+  ],
+  "learnMore": {
+    "label": "Raw String Literals (Microsoft Learn)",
+    "url": "https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/reference-types#string-literals"
+  },
+  "examples": [
+    {
+      "id": "raw-string-basic",
+      "title": "Basic raw string literals",
+      "description": "Raw strings eliminate escape sequences, allowing you to write JSON, SQL, and multiline text naturally without escaping quotes or backslashes.",
+      "sampleLanguageVersion": "11.0",
+      "snippets": {
+        "code": "raw-string-literals/basic-example.cs"
+      }
+    },
+    {
+      "id": "raw-string-interpolation",
+      "title": "Raw strings with interpolation",
+      "description": "Combine raw string literals with interpolation for clean, readable embedded queries and templates with variable substitution.",
+      "sampleLanguageVersion": "11.0",
+      "snippets": {
+        "code": "raw-string-literals/interpolation.cs"
+      }
+    }
+  ],
+  "newerCapabilities": []
+}

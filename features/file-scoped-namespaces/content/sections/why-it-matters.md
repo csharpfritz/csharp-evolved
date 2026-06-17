@@ -1,0 +1,1 @@
+File-scoped namespaces eliminate one level of indentation and make files easier to scan. Since most C# files contain exactly one namespace, this feature reduces boilerplate significantly. The cleaner structure improves code readability and is now the recommended pattern for most new C# projects.

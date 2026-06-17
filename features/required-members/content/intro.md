@@ -1,0 +1,1 @@
+Introduced in C# 11.0, the required keyword marks properties that must be initialized when creating an instance. Instead of relying on conventions or runtime checks, the compiler enforces that all required members are set before the object can be used. This is particularly valuable for ensuring data-transfer objects and other models are properly initialized.

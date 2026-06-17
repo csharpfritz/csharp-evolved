@@ -1,0 +1,48 @@
+{
+  "slug": "switch-expressions",
+  "title": "Switch Expressions",
+  "shortTitle": "Switch Expressions",
+  "versions": {
+    "csharp": "8.0",
+    "dotnet": "5.0"
+  },
+  "summary": "content/summary.md",
+  "intro": {
+    "path": "content/intro.md"
+  },
+  "sections": [
+    {
+      "title": "Why it matters",
+      "path": "content/sections/why-it-matters.md"
+    },
+    {
+      "title": "Cautions",
+      "path": "content/sections/cautions.md"
+    }
+  ],
+  "learnMore": {
+    "label": "Switch Expressions (Microsoft Learn)",
+    "url": "https://learn.microsoft.com/dotnet/csharp/language-reference/operators/switch-expression"
+  },
+  "examples": [
+    {
+      "id": "switch-expression-basic",
+      "title": "Basic switch expression",
+      "description": "Switch expressions provide a concise, expression-based alternative to traditional switch statements, reducing boilerplate and improving readability.",
+      "sampleLanguageVersion": "8.0",
+      "snippets": {
+        "code": "switch-expressions/basic-example.cs"
+      }
+    },
+    {
+      "id": "switch-expression-patterns",
+      "title": "Switch expressions with patterns",
+      "description": "Combine switch expressions with C# pattern matching for powerful, declarative logic without traditional statement syntax.",
+      "sampleLanguageVersion": "8.0",
+      "snippets": {
+        "code": "switch-expressions/pattern-matching.cs"
+      }
+    }
+  ],
+  "newerCapabilities": []
+}

@@ -1,0 +1,48 @@
+{
+  "slug": "file-scoped-namespaces",
+  "title": "File-Scoped Namespaces",
+  "shortTitle": "File-Scoped Namespaces",
+  "versions": {
+    "csharp": "10.0",
+    "dotnet": "6.0"
+  },
+  "summary": "content/summary.md",
+  "intro": {
+    "path": "content/intro.md"
+  },
+  "sections": [
+    {
+      "title": "Why it matters",
+      "path": "content/sections/why-it-matters.md"
+    },
+    {
+      "title": "Cautions",
+      "path": "content/sections/cautions.md"
+    }
+  ],
+  "learnMore": {
+    "label": "File-Scoped Namespaces (Microsoft Learn)",
+    "url": "https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/namespace"
+  },
+  "examples": [
+    {
+      "id": "file-scoped-namespace-basic",
+      "title": "Using file-scoped namespaces",
+      "description": "File-scoped namespaces eliminate indentation and reduce nesting, applying the namespace to the entire file with a single declaration.",
+      "sampleLanguageVersion": "10.0",
+      "snippets": {
+        "code": "file-scoped-namespaces/basic-example.cs"
+      }
+    },
+    {
+      "id": "file-scoped-vs-traditional",
+      "title": "Comparison with traditional namespaces",
+      "description": "See how file-scoped namespaces simplify code structure compared to traditional block-scoped namespaces.",
+      "sampleLanguageVersion": "10.0",
+      "snippets": {
+        "code": "file-scoped-namespaces/comparison.cs"
+      }
+    }
+  ],
+  "newerCapabilities": []
+}

@@ -1,0 +1,1 @@
+File-scoped namespaces declare a namespace at the file level with a simple semicolon syntax, eliminating unnecessary indentation and making code cleaner and easier to read.

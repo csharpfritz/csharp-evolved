@@ -1,0 +1,1 @@
+Raw string literals dramatically improve readability when working with structured text. JSON, SQL, regular expressions, and multiline content can now be written naturally without escaping quotes or backslashes. When combined with string interpolation, they enable clean embedded queries and templates, making code far more maintainable and easier to understand at a glance.

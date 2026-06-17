@@ -1,0 +1,1 @@
+Tuples were introduced in C# 7.0 as a way to quickly combine multiple values without creating a dedicated class. They complement deconstruction syntax, which lets you unpack tuple elements (or other deconstructable types) into individual variables with a single, readable expression.

@@ -1,0 +1,1 @@
+Introduced in C# 8.0, switch expressions transform switch statements into expressions that return values directly. They support pattern matching to enable more powerful conditional logic and dramatically reduce branching boilerplate, making code more declarative and easier to reason about.

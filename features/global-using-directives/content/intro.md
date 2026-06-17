@@ -1,0 +1,1 @@
+Introduced in C# 10.0, global using directives enable you to declare imports once that apply across your entire project. Instead of repeating the same using statements in every file, you centralize common namespaces (and static types) in a single location, typically in a dedicated Usings.cs file or Program.cs.

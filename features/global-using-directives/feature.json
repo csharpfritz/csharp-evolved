@@ -1,0 +1,48 @@
+{
+  "slug": "global-using-directives",
+  "title": "Global Using Directives",
+  "shortTitle": "Global Using",
+  "versions": {
+    "csharp": "10.0",
+    "dotnet": "6.0"
+  },
+  "summary": "content/summary.md",
+  "intro": {
+    "path": "content/intro.md"
+  },
+  "sections": [
+    {
+      "title": "Why it matters",
+      "path": "content/sections/why-it-matters.md"
+    },
+    {
+      "title": "Cautions",
+      "path": "content/sections/cautions.md"
+    }
+  ],
+  "learnMore": {
+    "label": "Global Using Directives (Microsoft Learn)",
+    "url": "https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/using#global-modifier"
+  },
+  "examples": [
+    {
+      "id": "global-using-basic",
+      "title": "Using global directives",
+      "description": "Global using directives apply to all files in your project, eliminating the need to repeat common imports in every file.",
+      "sampleLanguageVersion": "10.0",
+      "snippets": {
+        "code": "global-using-directives/global-usings.cs"
+      }
+    },
+    {
+      "id": "global-using-static",
+      "title": "Global static using",
+      "description": "Use global static using to import static members from a type once for the entire project.",
+      "sampleLanguageVersion": "10.0",
+      "snippets": {
+        "code": "global-using-directives/global-static-using.cs"
+      }
+    }
+  ],
+  "newerCapabilities": []
+}

@@ -1,0 +1,48 @@
+{
+  "slug": "required-members",
+  "title": "Required Members",
+  "shortTitle": "Required Members",
+  "versions": {
+    "csharp": "11.0",
+    "dotnet": "7.0"
+  },
+  "summary": "content/summary.md",
+  "intro": {
+    "path": "content/intro.md"
+  },
+  "sections": [
+    {
+      "title": "Why it matters",
+      "path": "content/sections/why-it-matters.md"
+    },
+    {
+      "title": "Cautions",
+      "path": "content/sections/cautions.md"
+    }
+  ],
+  "learnMore": {
+    "label": "Required Members (Microsoft Learn)",
+    "url": "https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/required"
+  },
+  "examples": [
+    {
+      "id": "required-properties",
+      "title": "Marking properties as required",
+      "description": "The required keyword ensures that properties must be initialized when creating an instance, with compile-time enforcement.",
+      "sampleLanguageVersion": "11.0",
+      "snippets": {
+        "code": "required-members/required-properties.cs"
+      }
+    },
+    {
+      "id": "required-with-init",
+      "title": "Required with init-only properties",
+      "description": "Combine required with init-only properties for immutable objects with compile-time initialization guarantees.",
+      "sampleLanguageVersion": "11.0",
+      "snippets": {
+        "code": "required-members/required-init.cs"
+      }
+    }
+  ],
+  "newerCapabilities": []
+}

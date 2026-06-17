@@ -1,0 +1,1 @@
+Tuples provide a lightweight syntax for grouping related values together and deconstruction enables you to unpack tuple elements into individual variables.

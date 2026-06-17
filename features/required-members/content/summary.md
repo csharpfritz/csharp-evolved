@@ -1,0 +1,1 @@
+Required members enforce that specific properties must be set during object initialization, preventing incomplete objects and catching errors at compile time.

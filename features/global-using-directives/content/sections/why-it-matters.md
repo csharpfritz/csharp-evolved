@@ -1,0 +1,1 @@
+Global using directives significantly reduce boilerplate in large projects. They're especially valuable in API projects where System.Text.Json, logging, and other standard dependencies are used across every file. This improves consistency, reduces line clutter in individual files, and makes onboarding new developers easier by centralizing project-wide import conventions.

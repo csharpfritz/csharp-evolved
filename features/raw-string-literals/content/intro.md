@@ -1,0 +1,1 @@
+Introduced in C# 11.0, raw string literals use a new syntax with three (or more) double-quotes (`"""`) to denote string boundaries. Within a raw string, all characters are treated literally—no escape sequences are processed. This is ideal for embedding JSON, SQL queries, XML, and other content that contains many special characters that would normally require escaping.

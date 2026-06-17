@@ -1,0 +1,1 @@
+Raw string literals are delimited by three or more quotes and eliminate escape-sequence processing, making it easy to work with JSON, SQL, and multiline text.

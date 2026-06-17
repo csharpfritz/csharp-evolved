@@ -1,0 +1,1 @@
+Introduced in C# 10.0, file-scoped namespaces simplify the common pattern of having a single namespace per file. Instead of wrapping the entire file content in a namespace block, you declare the namespace once at the top with `namespace MyNamespace;` and it applies to all code in that file. This reduces nesting and improves readability.

@@ -1,0 +1,1 @@
+Switch expressions bring functional-style pattern matching to C# as lightweight expressions that replace traditional switch statements with cleaner, more concise code.
