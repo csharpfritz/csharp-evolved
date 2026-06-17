@@ -1,0 +1,1 @@
+Only one file in a project can use top-level statements; the others must use traditional `Main` methods or classes. Top-level statements do not work in libraries (class libraries)—only in executable projects. If your program grows beyond a simple script, consider migrating to classes and methods for better maintainability.

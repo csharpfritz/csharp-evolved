@@ -1,0 +1,4 @@
+- Cleaner, more consistent syntax across all collection types (arrays, lists, spans, etc.).
+- The spread operator (`..`) enables elegant composition and flattening of collections.
+- The compiler infers collection type from context, reducing explicit type declarations.
+- Improves readability and aligns C# with syntax in modern languages like Python and JavaScript.

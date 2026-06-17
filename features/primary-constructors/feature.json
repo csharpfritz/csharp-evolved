@@ -1,0 +1,48 @@
+{
+  "slug": "primary-constructors",
+  "title": "Primary constructors",
+  "shortTitle": "Primary constructors",
+  "versions": {
+    "csharp": "12.0",
+    "dotnet": "8.0"
+  },
+  "summary": "content/summary.md",
+  "intro": {
+    "path": "content/intro.md"
+  },
+  "sections": [
+    {
+      "title": "Why it matters",
+      "path": "content/sections/why-it-matters.md"
+    },
+    {
+      "title": "Cautions",
+      "path": "content/sections/cautions.md"
+    }
+  ],
+  "learnMore": {
+    "label": "Primary constructors (Microsoft Learn)",
+    "url": "https://learn.microsoft.com/dotnet/csharp/whats-new/csharp-12#primary-constructors"
+  },
+  "examples": [
+    {
+      "id": "class-with-primary-constructor",
+      "title": "Declare and initialize properties inline",
+      "description": "Primary constructors let you declare constructor parameters directly in the class declaration, automatically creating and initializing backing fields.",
+      "sampleLanguageVersion": "12.0",
+      "snippets": {
+        "before": "primary-constructors/constructor-traditional.cs",
+        "after": "primary-constructors/constructor-primary.cs"
+      }
+    },
+    {
+      "id": "record-like-classes",
+      "title": "Record-like initialization without records",
+      "description": "Primary constructors bring record-style initialization convenience to regular classes, reducing boilerplate while maintaining explicit class semantics.",
+      "sampleLanguageVersion": "12.0",
+      "snippets": {
+        "code": "primary-constructors/person-class.cs"
+      }
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "slug": "collection-expressions",
+  "title": "Collection expressions",
+  "shortTitle": "Collection expressions",
+  "versions": {
+    "csharp": "12.0",
+    "dotnet": "8.0"
+  },
+  "summary": "content/summary.md",
+  "intro": {
+    "path": "content/intro.md"
+  },
+  "sections": [
+    {
+      "title": "Why it matters",
+      "path": "content/sections/why-it-matters.md"
+    },
+    {
+      "title": "Cautions",
+      "path": "content/sections/cautions.md"
+    }
+  ],
+  "learnMore": {
+    "label": "Collection expressions (Microsoft Learn)",
+    "url": "https://learn.microsoft.com/dotnet/csharp/language-reference/operators/collection-expressions"
+  },
+  "examples": [
+    {
+      "id": "list-and-array-initialization",
+      "title": "Unified syntax for array and list creation",
+      "description": "Collection expressions provide a consistent syntax for creating arrays, lists, and other collections, making initialization cleaner and less verbose.",
+      "sampleLanguageVersion": "12.0",
+      "snippets": {
+        "before": "collection-expressions/list-initialization-traditional.cs",
+        "after": "collection-expressions/collection-expression-syntax.cs"
+      }
+    },
+    {
+      "id": "spread-operator-collections",
+      "title": "Spread operator for combining collections",
+      "description": "The spread operator (`..`) makes it easy to combine existing collections into a new one without explicit loops or LINQ.",
+      "sampleLanguageVersion": "12.0",
+      "snippets": {
+        "code": "collection-expressions/spread-operator.cs"
+      }
+    }
+  ]
+}

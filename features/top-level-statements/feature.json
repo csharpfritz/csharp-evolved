@@ -1,0 +1,48 @@
+{
+  "slug": "top-level-statements",
+  "title": "Top-level statements",
+  "shortTitle": "Top-level statements",
+  "versions": {
+    "csharp": "9.0",
+    "dotnet": "5.0"
+  },
+  "summary": "content/summary.md",
+  "intro": {
+    "path": "content/intro.md"
+  },
+  "sections": [
+    {
+      "title": "Why it matters",
+      "path": "content/sections/why-it-matters.md"
+    },
+    {
+      "title": "Cautions",
+      "path": "content/sections/cautions.md"
+    }
+  ],
+  "learnMore": {
+    "label": "Top-level statements (Microsoft Learn)",
+    "url": "https://learn.microsoft.com/dotnet/csharp/fundamentals/program-structure/top-level-statements"
+  },
+  "examples": [
+    {
+      "id": "hello-world-simplification",
+      "title": "Simplified hello world program",
+      "description": "Top-level statements eliminate boilerplate for simple console applications, making the code more direct.",
+      "sampleLanguageVersion": "9.0",
+      "snippets": {
+        "before": "top-level-statements/hello-world-traditional.cs",
+        "after": "top-level-statements/hello-world-toplevel.cs"
+      }
+    },
+    {
+      "id": "argument-parsing",
+      "title": "Script-like argument parsing",
+      "description": "Top-level statements can access command-line args directly, making simple CLI scripts feel more natural.",
+      "sampleLanguageVersion": "9.0",
+      "snippets": {
+        "code": "top-level-statements/cli-arguments.cs"
+      }
+    }
+  ]
+}

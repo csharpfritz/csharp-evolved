@@ -1,0 +1,4 @@
+- Primary constructor parameters are accessible throughout the class body but are not automatically properties; assign them to properties explicitly if you need public access.
+- If you declare an explicit constructor, primary constructor parameters are no longer directly accessible unless you explicitly forward them.
+- Inheritance requires careful handling; derived classes must call the base primary constructor via the explicit `: base(...)` syntax.
+- Primary constructors only initialize what you explicitly assign; don't assume automatic properties are created.

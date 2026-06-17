@@ -1,0 +1,4 @@
+- Replaces verbose index-based conditionals with readable pattern expressions.
+- Enables matching on list structure (first, last, or middle elements) without explicit indexing.
+- Integrates seamlessly with switch expressions and pattern matching.
+- Makes code intent clearer and less error-prone than manual index arithmetic.

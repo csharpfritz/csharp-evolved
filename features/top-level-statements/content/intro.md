@@ -1,0 +1,1 @@
+Top-level statements, introduced in C# 9.0 (.NET 5.0), allow you to write executable code directly in a file without wrapping it in a class and Main method. One file in your project can contain top-level statements; the rest must use traditional class-based declarations. This feature is especially useful for scripts, utilities, and learning code.

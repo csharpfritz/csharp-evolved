@@ -1,0 +1,4 @@
+- Dramatically reduces boilerplate for simple classes with constructor parameters.
+- Improves readability by declaring and initializing state in one place.
+- Works seamlessly with inheritance and other class features.
+- Makes simple data-holding classes more concise without requiring full record syntax.

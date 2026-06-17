@@ -1,0 +1,4 @@
+- Collection expression syntax requires type inference context; always ensure the compiler can determine the target type from assignment or parameter type.
+- The spread operator creates a copy of the collection, which has performance implications for large collections.
+- Some older custom collection types may not support collection expression syntax; verify compatibility with your collection types.
+- Empty collection expressions `[]` are valid but require explicit type context to avoid ambiguity.

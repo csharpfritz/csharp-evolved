@@ -1,0 +1,1 @@
+List patterns, introduced in C# 11.0 (.NET 7.0), extend pattern matching to arrays and lists. You can match elements at specific positions, use slice patterns (`..`) to match variable-length sequences, and combine patterns to express complex list structure checks. This feature transforms verbose index-based logic into clear, declarative patterns.

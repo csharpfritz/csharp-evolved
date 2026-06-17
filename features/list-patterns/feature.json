@@ -1,0 +1,48 @@
+{
+  "slug": "list-patterns",
+  "title": "List patterns",
+  "shortTitle": "List patterns",
+  "versions": {
+    "csharp": "11.0",
+    "dotnet": "7.0"
+  },
+  "summary": "content/summary.md",
+  "intro": {
+    "path": "content/intro.md"
+  },
+  "sections": [
+    {
+      "title": "Why it matters",
+      "path": "content/sections/why-it-matters.md"
+    },
+    {
+      "title": "Cautions",
+      "path": "content/sections/cautions.md"
+    }
+  ],
+  "learnMore": {
+    "label": "List patterns (Microsoft Learn)",
+    "url": "https://learn.microsoft.com/dotnet/csharp/fundamentals/functional/pattern-matching"
+  },
+  "examples": [
+    {
+      "id": "array-element-matching",
+      "title": "Match array elements by position and value",
+      "description": "List patterns allow you to match specific positions and values in an array or list, enabling powerful pattern-based control flow.",
+      "sampleLanguageVersion": "11.0",
+      "snippets": {
+        "before": "list-patterns/array-switch-traditional.cs",
+        "after": "list-patterns/array-list-pattern.cs"
+      }
+    },
+    {
+      "id": "list-deconstruction",
+      "title": "Slice patterns for variable-length lists",
+      "description": "List patterns with slice patterns (`..`) allow matching the first, last, or middle elements while ignoring or capturing the rest.",
+      "sampleLanguageVersion": "11.0",
+      "snippets": {
+        "code": "list-patterns/slice-pattern.cs"
+      }
+    }
+  ]
+}

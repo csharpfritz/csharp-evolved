@@ -1,0 +1,1 @@
+Primary constructors, introduced in C# 12.0 (.NET 8.0), allow you to declare constructor parameters in the class declaration itself. These parameters automatically become field or property members of the class. This feature reduces ceremony for classes with simple initialization logic and brings the convenience of record-style initialization to regular classes.

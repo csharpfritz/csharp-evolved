@@ -1,0 +1,4 @@
+- Reduces ceremony for simple console applications and scripts.
+- Makes learning C# easier by removing the need to understand classes and entry points upfront.
+- Improves readability of quick utilities and prototype code.
+- Aligns C# with scripting languages for rapid exploration.
