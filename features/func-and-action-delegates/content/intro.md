@@ -1,0 +1,1 @@
+`Func<T>` and `Action<T>` arrived with C# 3.0 and quickly became the standard delegate shapes for modern C#. `Func` represents behavior that returns a value, while `Action` represents behavior that only performs work.

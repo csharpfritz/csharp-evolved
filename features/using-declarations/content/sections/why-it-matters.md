@@ -1,0 +1,3 @@
+- Reduces indentation and keeps business logic flatter.
+- Preserves safe deterministic disposal for `IDisposable` resources.
+- Improves readability in methods that open several resources.

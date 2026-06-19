@@ -1,20 +1,21 @@
 # Extended Plan: C# Feature Coverage — P3 & P4 Tiers
 
 **Purpose:** Comprehensive feature audit and next priorities after completing P0/P1/P2 coverage.  
-**Status:** Feature gap analysis complete. 20/50+ core features covered. P3/P4 roadmap ready.
+**Status:** Feature gap analysis complete. 26/50+ core features covered. P3 authored. P4 roadmap ready.
 
 ## Coverage Summary
 
-**Current (20 features):**
+**Current (26 features):**
 - P0: var, lambda-expressions, extension-methods, LINQ, async-await, string-interpolation, nullable-reference-types, pattern-matching, records, init-accessors
 - P1: tuples-and-deconstruction, switch-expressions, global-using-directives, file-scoped-namespaces, required-members, raw-string-literals
 - P2: top-level-statements, list-patterns, primary-constructors, collection-expressions
+- P3: func-and-action-delegates, default-interface-members, using-declarations, out-ref-in-parameters, span-and-readonlyspan, static-abstract-interface-members
 
 **Coverage era:** C# 3.0 (2007) → C# 14.0 (2025)
 
 ---
 
-## Priority 3 (P3) — High-Impact Essentials (Next 6 features)
+## Priority 3 (P3) — High-Impact Essentials (6 features) ✅ Complete
 
 Foundational features from C# 3.0+ used in 90%+ of projects. Should be covered next.
 
@@ -103,10 +104,10 @@ Important for specific domains or advanced scenarios. Cover as time/resources al
    - Core language evolution from C# 3.0 → 12.0
    - Modern syntax and type safety patterns
 
-2. **Build P3** (6 features) — ~1 week
+2. **Build P3** (6 features) ✅ **DONE**
    - Fill foundational gaps (Func<T>/Action<T>, Span<T>, using declarations, ref/out/in)
    - Cover 95% of typical C# development scenarios (C# 3.0+)
-   - Total: ~26 features
+   - Total: 26 features
 
 3. **Layer P4** (~20+ features) — ~3-4 weeks
    - Advanced and specialized patterns (C# 3.0+)

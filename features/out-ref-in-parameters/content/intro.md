@@ -1,0 +1,1 @@
+Reference parameter modifiers solve different problems: `out` returns a value through an argument, `ref` allows caller-visible mutation, and `in` (C# 7.2) passes by reference while keeping the argument readonly.

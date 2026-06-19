@@ -1,0 +1,48 @@
+{
+  "slug": "static-abstract-interface-members",
+  "title": "Static Abstract Members in Interfaces",
+  "shortTitle": "Static Abstract Members",
+  "versions": {
+    "csharp": "11.0",
+    "dotnet": "7.0"
+  },
+  "summary": "content/summary.md",
+  "intro": {
+    "path": "content/intro.md"
+  },
+  "sections": [
+    {
+      "title": "Why it matters",
+      "path": "content/sections/why-it-matters.md"
+    },
+    {
+      "title": "Cautions",
+      "path": "content/sections/cautions.md"
+    }
+  ],
+  "learnMore": {
+    "label": "Static abstract and virtual members (Microsoft Learn)",
+    "url": "https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/interface#static-abstract-and-virtual-members"
+  },
+  "examples": [
+    {
+      "id": "generic-parser",
+      "title": "Constrain generic parsing with static abstract members",
+      "description": "Call static members through generic constraints for compile-time-safe abstractions.",
+      "sampleLanguageVersion": "11.0",
+      "snippets": {
+        "code": "static-abstract-interface-members/generic-parser.cs"
+      }
+    },
+    {
+      "id": "generic-math-shape",
+      "title": "Model reusable numeric operations",
+      "description": "Static abstract operators enable type-safe generic math patterns.",
+      "sampleLanguageVersion": "11.0",
+      "snippets": {
+        "code": "static-abstract-interface-members/generic-math-shape.cs"
+      }
+    }
+  ],
+  "newerCapabilities": []
+}

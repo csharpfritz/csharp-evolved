@@ -1,0 +1,3 @@
+- Avoids tuple allocations and exception-heavy parse flows in hot paths.
+- Enables explicit mutation semantics with `ref`.
+- Improves performance for large structs via `in` without sacrificing safety.

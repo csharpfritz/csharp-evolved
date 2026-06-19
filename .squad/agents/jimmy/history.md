@@ -70,3 +70,5 @@ Initial testing context seeded.
 - Verified generated output after feature detail metadata/UI updates.
 - Confirmed build/check workflow passes for the batch.
 - Scribe logged orchestration/session outcomes for this sync verification cycle.
+
+- 2026-06-19: Scribe recorded completed Playwright/E2E navigation-search-filter rollout and archived decision into `decisions.md`; inbox entry processed and removed.

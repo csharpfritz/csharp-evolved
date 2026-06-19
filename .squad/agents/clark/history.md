@@ -35,3 +35,5 @@ Initial backend/sample context seeded.
 ## 2026-06-17T15:13:54.804-04:00
 - Delivered revision fix for invalid `<p><pre>` wrapping and snippet rendering regression during homepage snippet cleanup.
 - Fix unblocked final verification, which then passed all requirements.
+
+- 2026-06-19: Scribe merged Clark's P1 feature-validation readiness decision into `decisions.md` and cleared processed inbox item.

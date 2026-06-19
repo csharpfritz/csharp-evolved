@@ -70,3 +70,13 @@ Initial frontend context seeded.
 - Delivered feature detail page top-version metadata as feature-pill notation.
 - Removed numeric leaders from the newer capabilities UI while preserving existing structure and behavior.
 - Scribe logged orchestration/session outcomes for this sync batch.
+
+- 2026-06-19T10:56:00.767-04:00: Completed features filter selector collision fix (`src/features/index.md`) and added regression assertions in `test/e2e/features.spec.js`; decision archived by Scribe.
+
+- 2026-06-19T11:02:51.839-04:00: Completed hidden-card filter enforcement in `src/assets/site.css` and strengthened `/features/` e2e visibility checks in `test/e2e/features.spec.js`.
+
+- 2026-06-19T11:10:32.508-04:00: Scribe recorded completion of Apply Filters simplification. Decision merged into `decisions.md`; inbox item cleared; orchestration/session logs written.
+
+## 2026-06-19T11:27:43.024-04:00
+- Completed the theme contrast refresh in `src/assets/site.css`, introducing a deeper midnight-blue palette, brighter violet/cyan accents, richer card/hero surfaces, and improved link/focus visibility while keeping page structure intact.
+- Archived the design decision in `decisions.md` and cleared the inbox entry for the refresh work.

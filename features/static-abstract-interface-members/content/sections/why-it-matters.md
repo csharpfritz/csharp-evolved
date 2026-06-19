@@ -1,0 +1,3 @@
+- Makes reusable generic math and parsing APIs practical.
+- Moves many runtime checks to compile time.
+- Enables cleaner abstractions for numeric and strongly-typed value objects.

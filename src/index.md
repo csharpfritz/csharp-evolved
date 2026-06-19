@@ -7,9 +7,16 @@ templateEngineOverride: njk
 <section class="hero">
   <h1>C# Evolved</h1>
   <p class="lead">
-    A focused static site for learning C# features from modern releases with practical,
-    copy-ready snippets.
+    A reference site for developers who want to do more with the C# language, with practical
+    examples and version-aware guidance.
   </p>
+  <nav class="hero-nav" aria-label="Primary">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/features/">Explore features</a></li>
+      <li><a href="/snippets/">Browse snippets</a></li>
+    </ul>
+  </nav>
 </section>
 
 <section class="grid" aria-label="Content sections">

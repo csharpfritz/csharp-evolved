@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/assets/site.css" />
   </head>
   <body>
+    {% if page.url != "/" %}
     <header class="site-header">
       <div class="container nav">
         <a class="brand" href="/">C# Evolved</a>
@@ -23,6 +24,7 @@
         </nav>
       </div>
     </header>
+    {% endif %}
     <main class="container">
       {{ content | safe }}
     </main>

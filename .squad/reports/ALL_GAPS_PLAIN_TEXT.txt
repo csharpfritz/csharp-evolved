@@ -1,0 +1,524 @@
+═══════════════════════════════════════════════════════════════════════════════
+COMPREHENSIVE C# LANGUAGE FEATURE AUDIT (C# 3.0 - 14.0)
+═══════════════════════════════════════════════════════════════════════════════
+
+AUDIT DATE: June 17, 2026
+AUDITOR: Cat Grant, DevRel
+DATA SOURCE: Microsoft Learn Official Documentation
+SCOPE: C# 3.0 (2007) through C# 14.0 (2025)
+
+═══════════════════════════════════════════════════════════════════════════════
+EXECUTIVE SUMMARY
+═══════════════════════════════════════════════════════════════════════════════
+
+Total Features in C# 3.0+: 153
+Currently Documented: 20
+Identified Gaps: 133
+Coverage Rate: 13.1%
+
+ALL GAPS IDENTIFIED (Listed by Priority & Version):
+
+═══════════════════════════════════════════════════════════════════════════════
+C# 14.0 GAPS (9 total, 1 covered)
+═══════════════════════════════════════════════════════════════════════════════
+
+COVERED:
+✓ field keyword - Access compiler-synthesized backing fields in property accessors
+
+MISSING:
+
+[HIGH PRIORITY]
+- Extension members (Extension properties, static extensions, static operators on types)
+
+[MEDIUM PRIORITY]
+- Null-conditional assignment (Use ?. and ?[] on left side of assignment)
+- Implicit span conversions (Between Span<T>, ReadOnlySpan<T>, arrays)
+- Partial constructors and events (partial on constructors/events)
+- Lambda parameter modifiers (ref, in, out, scoped without explicit types)
+
+[LOW PRIORITY]
+- User-defined compound assignment (Custom +=, -=, etc. operators)
+- nameof unbound generics (nameof(List<>) for unbound generics)
+- Preprocessor directives for file apps (File-based app directives)
+
+═══════════════════════════════════════════════════════════════════════════════
+C# 13.0 GAPS (10 total, 0 covered) ⚠️ CRITICAL
+═══════════════════════════════════════════════════════════════════════════════
+
+[HIGH PRIORITY]
+- params collections (Span<T>, ReadOnlySpan<T>, IEnumerable<T>, collections)
+- ref struct interfaces (ref struct types implementing interfaces)
+- allows ref struct (Generic constraints for ref struct type parameters)
+
+[MEDIUM PRIORITY]
+- New lock type (System.Threading.Lock for thread synchronization)
+- ref in iterators and async (ref locals in async methods/iterators)
+- Partial properties and indexers (partial on properties/indexers)
+
+[LOW PRIORITY]
+- Escape sequence \e (ESC character escape U+001B)
+- Implicit indexer access (^ from-end index in object initializers)
+- Method group natural type (Optimized overload resolution)
+- Overload resolution priority (OverloadResolutionPriority attribute)
+
+═══════════════════════════════════════════════════════════════════════════════
+C# 12.0 GAPS (8 total, 2 covered)
+═══════════════════════════════════════════════════════════════════════════════
+
+COVERED:
+✓ Primary constructors
+✓ Collection expressions
+
+MISSING:
+
+[MEDIUM PRIORITY]
+- ref readonly parameters (Clearer pass-by-reference semantics)
+
+[LOW PRIORITY]
+- Inline arrays (Fixed-size arrays in struct types)
+- Default lambda parameters (Lambda parameter default values)
+- Alias any type (using alias for any type)
+- Experimental attribute (Mark types/methods as experimental)
+- Interceptors (Compile-time method substitution)
+
+═══════════════════════════════════════════════════════════════════════════════
+C# 11.0 GAPS (14 total, 3 covered)
+═══════════════════════════════════════════════════════════════════════════════
+
+COVERED:
+✓ Raw string literals
+✓ List patterns
+✓ Required members
+
+MISSING:
+
+[HIGH PRIORITY]
+- Generic math support (Static abstract members in interfaces)
+
+[MEDIUM PRIORITY]
+- Generic attributes (Generic attribute types)
+- ref fields and scoped ref (Stack-safe ref fields in structs)
+- File-local types (file access modifier for single-file types)
+- nint and nuint keywords (Native integer type keywords)
+
+[LOW PRIORITY]
+- UTF-8 string literals (u8 prefixed strings for UTF-8 bytes)
+- Newlines in string interpolation (Multi-line expression interpolation)
+- Auto-default structs (Automatic field initialization)
+- Span<char> pattern matching (Pattern match on string spans)
+- Extended nameof (Complex nameof expressions)
+- Improved method group conversion (Better delegate conversions)
+
+═══════════════════════════════════════════════════════════════════════════════
+C# 10.0 GAPS (16 total, 2 covered)
+═══════════════════════════════════════════════════════════════════════════════
+
+COVERED:
+✓ Global using directives
+✓ File-scoped namespaces
+
+MISSING:
+
+[HIGH PRIORITY]
+- Record structs (Value-semantic record types)
+
+[MEDIUM PRIORITY]
+- Extended property patterns (Complex property patterns)
+- Lambda natural types (Compiler inferred delegate types)
+- Lambda return types (Explicit lambda return types)
+
+[LOW PRIORITY]
+- Struct field initialization (Struct initialization improvements)
+- Interpolated string handlers (Custom interpolation logic)
+- Lambda attributes (Attributes on lambda expressions)
+- Sealed record ToString (sealed override in record types)
+- Const string interpolation (const with interpolated strings)
+- Deconstruction improvements (Declaration in same deconstruction)
+- CallerArgumentExpression attribute (Source code of arguments)
+- AsyncMethodBuilder attribute (Custom async method builders)
+- Null-state analysis improvements (Better definite assignment)
+- Line pragma format (New #line pragma format)
+
+═══════════════════════════════════════════════════════════════════════════════
+C# 9.0 GAPS (17 total, 3 covered)
+═══════════════════════════════════════════════════════════════════════════════
+
+COVERED:
+✓ Records
+✓ Init-only properties
+✓ Top-level statements
+
+MISSING:
+
+[HIGH PRIORITY]
+- Relational patterns (Pattern matching with <, >, <=, >=)
+- Logical patterns (and, or, not patterns)
+- New partial methods (Private, virtual, return types)
+
+[MEDIUM PRIORITY]
+- Module initializers (Assembly-load handlers)
+- Covariant return types (Derived types in method overrides)
+- Static lambdas (Closure-free lambdas)
+- Native integers (nint/nuint types)
+- Target-typed new (Omit type in new expression)
+- Target-typed conditionals (Ternary operator type inference)
+
+[LOW PRIORITY]
+- Function pointers (Pointer-like methods without delegates)
+- Skip localsinit (Performance optimization)
+- Extension GetEnumerator (foreach with extension methods)
+- Lambda discard parameters (_ in lambda parameters)
+- Local function attributes (Attributes on local functions)
+
+═══════════════════════════════════════════════════════════════════════════════
+C# 8.0 GAPS (17 total, 3 covered)
+═══════════════════════════════════════════════════════════════════════════════
+
+COVERED:
+✓ Switch expressions
+✓ Property patterns
+✓ Nullable reference types
+
+MISSING:
+
+[HIGH PRIORITY]
+- Default interface members (Interface method implementations)
+- Using declarations (Implicit Dispose on local variables)
+- Indices and ranges (^ from-end and .. range operators)
+- Asynchronous streams (IAsyncEnumerable<T> and await foreach)
+- Tuple patterns (Pattern matching on tuples)
+- Positional patterns (Pattern matching on positional deconstruction)
+
+[MEDIUM PRIORITY]
+- Readonly members (readonly instance members)
+- Static local functions (Closure-free local functions)
+- Disposable ref structs (IDisposable in ref struct)
+- Null-coalescing assignment (??= operator)
+
+[LOW PRIORITY]
+- Local variable shadowing (Shadowing in lambda/local scope)
+- Stackalloc in expressions (More stackalloc expression contexts)
+- Unmanaged constructed types (Generics in unsafe code)
+- Interpolated verbatim ($@ and @$ string prefixes)
+
+═══════════════════════════════════════════════════════════════════════════════
+C# 7.3 GAPS (8 total, 0 covered)
+═══════════════════════════════════════════════════════════════════════════════
+
+[MEDIUM PRIORITY]
+- Generic constraints (class?, unmanaged, etc.)
+
+[LOW PRIORITY]
+- Tuple equality (== and != for tuples)
+- Expression variables (Variables in more contexts)
+- Stackalloc in nested (Nested stackalloc expressions)
+- Fixed pattern enhancements (Enhanced fixed patterns)
+- Ref local reassignment (Better ref local reassignment)
+- Field attribute targets (Attributes on auto-property fields)
+- Method resolution improved (Better in parameter resolution)
+
+═══════════════════════════════════════════════════════════════════════════════
+C# 7.2 GAPS (12 total, 0 covered)
+═══════════════════════════════════════════════════════════════════════════════
+
+[HIGH PRIORITY]
+- in parameters (Pass by readonly reference)
+- ref struct (Stack-only struct types)
+
+[MEDIUM PRIORITY]
+- Readonly structs (Immutable value types)
+- ref readonly return (Return readonly references)
+
+[LOW PRIORITY]
+- stackalloc initializers (Initialize stackalloc arrays)
+- Fixed statement patterns (Enhanced fixed patterns)
+- Fixed field access (Access fixed fields without pinning)
+- Ref local reassignment (Reassign ref locals)
+- Non-trailing named args (Named arguments before positional)
+- Numeric literal underscores (Underscores in numeric literals)
+- Private protected access (Derived-in-assembly access)
+- Conditional ref (Ternary operator returning references)
+
+═══════════════════════════════════════════════════════════════════════════════
+C# 7.1 GAPS (4 total, 0 covered)
+═══════════════════════════════════════════════════════════════════════════════
+
+[MEDIUM PRIORITY]
+- Async main (Async entry point with Task/Task<int>)
+
+[LOW PRIORITY]
+- Default literal (Type-inferred default values)
+- Inferred tuple names (Automatic tuple element names)
+- Generic pattern matching (Patterns with generic type parameters)
+
+═══════════════════════════════════════════════════════════════════════════════
+C# 7.0 GAPS (11 total, 2 covered)
+═══════════════════════════════════════════════════════════════════════════════
+
+COVERED:
+✓ Tuples and deconstruction
+✓ Pattern matching (base implementation)
+
+MISSING:
+
+[HIGH PRIORITY]
+- Local functions (Functions inside methods)
+
+[MEDIUM PRIORITY]
+- Out variables (Inline out variable declaration)
+- Ref locals (Local reference variables)
+- Ref returns (Method reference returns)
+- Expanded expression-bodied members (More member types with =>)
+
+[LOW PRIORITY]
+- Discards (Unused variable via _)
+- Binary literals (0b prefix for binary)
+- Digit separators (Underscores in numeric literals)
+- Throw expressions (throw as expression)
+
+═══════════════════════════════════════════════════════════════════════════════
+C# 6.0 GAPS (10 total, 1 covered)
+═══════════════════════════════════════════════════════════════════════════════
+
+COVERED:
+✓ String interpolation
+
+MISSING:
+
+[HIGH PRIORITY]
+- Expression-bodied members (=> lambda-like syntax)
+- Null-conditional operator (?. and ?[] operators)
+
+[MEDIUM PRIORITY]
+- Static imports (using static to import static members)
+- Exception filters (when keyword in catch clauses)
+- nameof operator (Get string name of symbols)
+
+[LOW PRIORITY]
+- Auto-property initializers (Inline auto-property values)
+- Index initializers (Initialize via indexers)
+- Default getter-only properties (Default values for read-only props)
+- Await in catch/finally (await in exception handlers)
+
+═══════════════════════════════════════════════════════════════════════════════
+C# 5.0 GAPS (2 total, 1 covered)
+═══════════════════════════════════════════════════════════════════════════════
+
+COVERED:
+✓ Async/await
+
+MISSING:
+
+[LOW PRIORITY]
+- Caller info attributes (CallerMemberName, CallerFilePath, CallerLineNumber)
+
+═══════════════════════════════════════════════════════════════════════════════
+C# 4.0 GAPS (5 total, 0 covered)
+═══════════════════════════════════════════════════════════════════════════════
+
+[MEDIUM PRIORITY]
+- Dynamic binding (dynamic type for late binding)
+- Named/optional arguments (Parameter defaults and named passing)
+- Generic covariance (out type parameter)
+- Generic contravariance (in type parameter)
+
+[LOW PRIORITY]
+- Embedded interop types (No-PIA COM interop)
+
+═══════════════════════════════════════════════════════════════════════════════
+C# 3.0 GAPS (10 total, 4 covered)
+═══════════════════════════════════════════════════════════════════════════════
+
+COVERED:
+✓ var keyword
+✓ Lambda expressions
+✓ Extension methods
+✓ LINQ
+
+MISSING:
+
+[HIGH PRIORITY]
+- Auto-implemented properties (Automatic backing fields)
+- Anonymous types (Type-inferred inline types)
+- Expression trees (Compiled lambdas for inspection)
+- Collection initializers (Inline collection initialization)
+- Object initializers (Inline property initialization)
+- Partial methods (Methods across partial declarations)
+
+═══════════════════════════════════════════════════════════════════════════════
+GAPS SUMMARY BY CATEGORY
+═══════════════════════════════════════════════════════════════════════════════
+
+SYNTAX FEATURES (33 gaps):
+  Null operators, using declarations, indices/ranges, type-targeted expressions,
+  interpolation variations, initializer syntax, literal formats, lambda syntax,
+  declaration patterns, statement forms
+
+OOP FEATURES (30 gaps):
+  Interface members, partial members, property syntax, access modifiers,
+  method variations, type initializers, lambda capabilities, attribute targets,
+  record variations, inheritance patterns
+
+PERFORMANCE FEATURES (19 gaps):
+  ref semantics (locals, returns, parameters, fields), stack allocation,
+  static closures, function pointers, fixed patterns, memory optimization
+
+FUNCTIONAL PROGRAMMING (19 gaps):
+  Pattern variants (relational, logical, tuple, positional), local functions,
+  lambda features (attributes, discards, parameters), method groups
+
+TYPE SYSTEM (14 gaps):
+  Generic constraints (generic math, covariance, contravariance), type inference,
+  native integers, dynamic typing, generic attributes, pattern matching on types
+
+CONCURRENCY (6 gaps):
+  Asynchronous streams, async main, enhanced lock, ref in async/iterators,
+  exception handling in async
+
+REFLECTION (3 gaps):
+  nameof operator variants and capabilities
+
+ATTRIBUTES (3 gaps):
+  Caller info, experimental marking, argument expressions
+
+INTEROP (1 gap):
+  COM interoperability type embedding
+
+═══════════════════════════════════════════════════════════════════════════════
+CRITICAL MISSING FEATURE FAMILIES
+═══════════════════════════════════════════════════════════════════════════════
+
+1. PARTIAL MEMBERS ECOSYSTEM (3 features across 3 versions) ⚠️ CRITICAL
+   - All gaps: C# 9, 13, 14
+   - Impact: Heavy use in code generation and source generators
+   - Status: NOT YET DOCUMENTED
+
+2. PERFORMANCE & MEMORY PATTERNS (19 features)
+   - ref semantics, ref struct, in parameters, function pointers, etc.
+   - Impact: Essential for systems programming and performance optimization
+   - Status: Severely underrepresented (2/21)
+
+3. OOP FOUNDATIONS (30 features)
+   - Auto-properties, interfaces, initialization, inheritance patterns
+   - Impact: Core to all C# development
+   - Status: Severely underrepresented (4/34)
+
+4. ADVANCED PATTERN MATCHING (11 features)
+   - Relational, logical, tuple, positional patterns
+   - Impact: Functional programming patterns
+   - Status: Severely underrepresented (1/11)
+
+5. TYPE SYSTEM EXTENSIONS (14 features)
+   - Generic math, covariance/contravariance, dynamic typing
+   - Impact: Advanced library and algorithm development
+   - Status: Underrepresented (0/14)
+
+═══════════════════════════════════════════════════════════════════════════════
+RECOMMENDED ADDITIONS TO ROADMAP
+═══════════════════════════════════════════════════════════════════════════════
+
+IMMEDIATE (Week 1-2): High-Impact Foundations
+1. Default interface members (C# 8) - Paradigm shift
+2. Local functions (C# 7) - Common pattern
+3. Auto-implemented properties (C# 3) - FOUNDATIONAL
+4. Expression-bodied members (C# 6) - Pervasive
+5. Partial methods enhancements (C# 9) - Code generation critical
+6. Indices and ranges (C# 8) - Collection operations
+7. Using declarations (C# 8) - Resource management
+8. Anonymous types (C# 3) - Basic pattern
+
+PHASE 2 (Week 3-4): Core Modern Patterns
+1. Relational & logical patterns (C# 9)
+2. ref struct ecosystem (C# 7.2)
+3. Tuple patterns (C# 8)
+4. in parameters (C# 7.2)
+5. Generic math (C# 11)
+6. params collections (C# 13)
+7. Extension members (C# 14)
+8. Static lambdas (C# 9)
+
+PHASE 3 (Week 5-6): Specialized Patterns
+1. Module initializers (C# 9)
+2. File-local types (C# 11)
+3. ref fields (C# 11)
+4. Generic attributes (C# 11)
+5. New lock type (C# 13)
+6. Interpolated string handlers (C# 10)
+7. Expression trees (C# 3)
+8. Dynamic binding (C# 4)
+
+PHASE 4 (Week 7-8): Advanced Topics
+1. Function pointers (C# 9)
+2. Covariant return types (C# 9)
+3. ref readonly patterns (C# 7.2)
+4. Async pattern evolution (C# 5-13)
+5. Generic constraints (C# 7.3)
+6. Target-typed expressions (C# 9-10)
+
+═══════════════════════════════════════════════════════════════════════════════
+ACTIONABLE INSIGHTS
+═══════════════════════════════════════════════════════════════════════════════
+
+COVERAGE BLIND SPOTS:
+
+❌ Newest Versions: C# 13 = 0%, C# 14 = 11%, C# 12 = 25%
+   → Need urgent attention for latest feature adoption
+
+❌ Foundations Missing: Auto-properties, anonymous types, object initializers
+   → Should be prerequisite knowledge
+
+❌ Category Imbalance:
+   - Syntax: 11% covered (4/37 features)
+   - OOP: 12% covered (4/34 features)
+   - Performance: 10% covered (2/21 features)
+   - Functional: 21% covered (5/24 features)
+
+STRATEGIC OPPORTUNITIES:
+
+1. Update C# 13-14 documentation ASAP
+   Impact: Newest features, highest adoption curve
+   Effort: ~20 hours
+
+2. Fill foundational C# 3 gaps
+   Impact: Base knowledge for all developers
+   Effort: ~10 hours
+
+3. Create "Performance Patterns" guide
+   Impact: Critical for systems programming
+   Effort: ~15 hours
+
+4. Create "OOP Evolution" guide
+   Impact: Interfaces, inheritance, design patterns
+   Effort: ~20 hours
+
+5. Create "Functional Programming" guide
+   Impact: Pattern matching, LINQ, lambdas
+   Effort: ~15 hours
+
+TOTAL EFFORT FOR COMPREHENSIVE COVERAGE: ~80 hours
+ESTIMATED COVERAGE INCREASE: 13% → 65% (100+ new features)
+
+═══════════════════════════════════════════════════════════════════════════════
+CONCLUSION
+═══════════════════════════════════════════════════════════════════════════════
+
+This comprehensive audit reveals that current documentation covers only the
+headline features (LINQ, async/await, records) while missing numerous important
+capabilities that developers encounter regularly.
+
+With 133 gaps across 12 C# versions, there is significant opportunity to expand
+coverage and provide comprehensive guidance for developers working with modern C#.
+
+Recommended approach:
+1. Prioritize newest versions (C# 13-14)
+2. Add foundational features (C# 3)
+3. Group features by category/use case
+4. Create decision trees ("When to use X vs Y")
+5. Include real-world examples and gotchas
+
+Target coverage expansion from 13% to 60%+ would provide developers with
+comprehensive, modern C# language guidance.
+
+═══════════════════════════════════════════════════════════════════════════════
+END OF AUDIT REPORT
+═══════════════════════════════════════════════════════════════════════════════

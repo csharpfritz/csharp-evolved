@@ -1,0 +1,48 @@
+{
+  "slug": "default-interface-members",
+  "title": "Default Interface Members",
+  "shortTitle": "Default Interface Members",
+  "versions": {
+    "csharp": "8.0",
+    "dotnet": "3.0"
+  },
+  "summary": "content/summary.md",
+  "intro": {
+    "path": "content/intro.md"
+  },
+  "sections": [
+    {
+      "title": "Why it matters",
+      "path": "content/sections/why-it-matters.md"
+    },
+    {
+      "title": "Cautions",
+      "path": "content/sections/cautions.md"
+    }
+  ],
+  "learnMore": {
+    "label": "Default interface methods versioning tutorial (Microsoft Learn)",
+    "url": "https://learn.microsoft.com/dotnet/csharp/advanced-topics/interface-implementation/default-interface-methods-versions"
+  },
+  "examples": [
+    {
+      "id": "default-behavior",
+      "title": "Add default behavior to an interface",
+      "description": "Default members let existing implementations keep working when an interface evolves.",
+      "sampleLanguageVersion": "8.0",
+      "snippets": {
+        "code": "default-interface-members/default-behavior.cs"
+      }
+    },
+    {
+      "id": "override-default",
+      "title": "Override interface default behavior",
+      "description": "Implementations can still provide custom behavior when needed.",
+      "sampleLanguageVersion": "8.0",
+      "snippets": {
+        "code": "default-interface-members/override-default.cs"
+      }
+    }
+  ],
+  "newerCapabilities": []
+}

@@ -1,0 +1,3 @@
+- Reduces custom delegate boilerplate in APIs and utility methods.
+- Pairs naturally with lambdas and LINQ-style composition.
+- Makes behavior-first design easier by passing functions as arguments.

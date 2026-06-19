@@ -1,0 +1,3 @@
+- Reduces allocation pressure in parsing and transformation code.
+- Enables fast slicing without copying buffers.
+- Improves throughput in hot paths while retaining type safety.

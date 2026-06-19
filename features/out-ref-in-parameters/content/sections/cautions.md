@@ -1,0 +1,1 @@
+Use these modifiers intentionally because they affect API ergonomics. `ref` and `out` can make call sites noisier and harder to compose. Prefer clear names and keep referenced data lifetimes straightforward.

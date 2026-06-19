@@ -16,7 +16,7 @@ Organized starting points for content that can grow into full feature guides.
   <p class="feature-filter-help">
     Pick a version family and view either everything up to that version or only features added after it.
   </p>
-  <form id="feature-filter-form" method="get" action="/features/" novalidate>
+  <div id="feature-filter-form">
     <div class="feature-filter-grid">
       <div>
         <label for="target">Version family</label>
@@ -49,12 +49,21 @@ Organized starting points for content that can grow into full feature guides.
           {% endfor %}
         </select>
       </div>
+      <div>
+        <label for="search">Search</label>
+        <input
+          id="search"
+          name="search"
+          type="search"
+          placeholder="Search feature title or summary"
+          autocomplete="off"
+        />
+      </div>
     </div>
     <div class="feature-filter-actions">
-      <button type="submit">Apply filters</button>
       <a href="/features/">Reset</a>
     </div>
-  </form>
+  </div>
   <p id="feature-filter-summary" class="feature-filter-summary" tabindex="-1"></p>
 </section>
 
@@ -64,6 +73,7 @@ Organized starting points for content that can grow into full feature guides.
   class="card tiled-card feature-card"
   data-csharp-order="{{ feature.versions.csharp.order }}"
   data-dotnet-order="{{ feature.versions.dotnet.order }}"
+  data-search-text="{{ (feature.title + ' ' + feature.summary) | lower | escape }}"
 >
 <header class="tiled-card-header">
   <h2><a href="/features/{{ feature.slug }}/">{{ feature.title }}</a></h2>
@@ -86,28 +96,24 @@ Organized starting points for content that can grow into full feature guides.
   No features match the selected filters. Try a different mode or version.
 </p>
 
-{% if features and features.length %}
-## First sample now live
-
-Start with <a href="/features/{{ features[0].slug }}/">{{ features[0].title }}</a> and follow the same structure as new feature guides are added.
-{% endif %}
-
 <script>
   (function () {
-    const form = document.getElementById("feature-filter-form");
-    if (!form) return;
-
     const targetSelect = document.getElementById("target");
     const modeSelect = document.getElementById("mode");
     const versionSelect = document.getElementById("version");
+    const searchInput = document.getElementById("search");
     const summary = document.getElementById("feature-filter-summary");
     const emptyState = document.getElementById("feature-filter-empty");
+    if (!targetSelect || !modeSelect || !versionSelect || !searchInput || !summary || !emptyState) {
+      return;
+    }
     const cards = Array.from(document.querySelectorAll(".feature-card"));
 
     const defaults = {
       target: "{{ defaultTarget }}",
       mode: "{{ defaultMode }}",
-      version: "{{ defaultVersion.id }}"
+      version: "{{ defaultVersion.id }}",
+      search: ""
     };
     const validModes = new Set(
       [{% for mode in featureFilters.modes %}"{{ mode.id }}"{% if not loop.last %}, {% endif %}{% endfor %}]
@@ -129,11 +135,41 @@ Start with <a href="/features/{{ features[0].slug }}/">{{ features[0].title }}</
       return familyOptions;
     }
 
+    function setVersionSelection(target, versionId) {
+      const familyOptions = getFamilyOptions(target);
+      if (!familyOptions.length) {
+        return "";
+      }
+
+      const selectedOption =
+        familyOptions.find((option) => option.value === versionId) ||
+        familyOptions[familyOptions.length - 1];
+      versionSelect.selectedIndex = Array.from(versionSelect.options).indexOf(
+        selectedOption
+      );
+      return selectedOption.value;
+    }
+
+    function getSelectedVersionId(target) {
+      const selected = Array.from(versionSelect.selectedOptions).find(
+        (option) => option.dataset.family === target
+      );
+      if (selected) {
+        return selected.value;
+      }
+
+      const familyOptions = getFamilyOptions(target);
+      return familyOptions.length
+        ? familyOptions[familyOptions.length - 1].value
+        : "";
+    }
+
     function readStateFromQuery() {
       const query = new URLSearchParams(window.location.search);
       const target = query.get("target");
       const mode = query.get("mode");
       const version = query.get("version");
+      const search = query.get("search");
 
       const nextTarget = target === "dotnet" ? "dotnet" : defaults.target;
       const familyOptions = updateVersionOptions(nextTarget);
@@ -147,7 +183,8 @@ Start with <a href="/features/{{ features[0].slug }}/">{{ features[0].title }}</
       return {
         target: nextTarget,
         mode: nextMode,
-        version: nextVersion
+        version: nextVersion,
+        search: typeof search === "string" ? search.trim() : ""
       };
     }
 
@@ -158,13 +195,17 @@ Start with <a href="/features/{{ features[0].slug }}/">{{ features[0].title }}</
       if (!selected) return;
 
       const selectedOrder = Number(selected.dataset.order);
+      const normalizedSearch = state.search.trim().toLowerCase();
       let visibleCount = 0;
       cards.forEach((card) => {
         const featureOrder = Number(card.dataset[`${state.target}Order`]);
-        const isVisible =
+        const isWithinVersionRange =
           state.mode === "after"
             ? featureOrder > selectedOrder
             : featureOrder <= selectedOrder;
+        const cardSearchText = card.dataset.searchText || "";
+        const matchesSearch = !normalizedSearch || cardSearchText.includes(normalizedSearch);
+        const isVisible = isWithinVersionRange && matchesSearch;
         card.hidden = !isVisible;
         if (isVisible) visibleCount += 1;
       });
@@ -174,9 +215,12 @@ Start with <a href="/features/{{ features[0].slug }}/">{{ features[0].title }}</
         state.mode === "after"
           ? "after"
           : "up to and including";
+      const searchFragment = normalizedSearch
+        ? ` matching "${state.search.trim()}"`
+        : "";
       summary.textContent = `Showing ${visibleCount} feature${
         visibleCount === 1 ? "" : "s"
-      } ${modeLabel} ${selected.text}.`;
+      } ${modeLabel} ${selected.text}${searchFragment}.`;
     }
 
     function syncQuery(state, replaceHistory) {
@@ -185,6 +229,9 @@ Start with <a href="/features/{{ features[0].slug }}/">{{ features[0].title }}</
         mode: state.mode,
         version: state.version
       });
+      if (state.search) {
+        query.set("search", state.search);
+      }
       const nextUrl = `${window.location.pathname}?${query.toString()}`;
       if (replaceHistory) {
         window.history.replaceState(null, "", nextUrl);
@@ -197,9 +244,14 @@ Start with <a href="/features/{{ features[0].slug }}/">{{ features[0].title }}</
       targetSelect.value = state.target;
       modeSelect.value = state.mode;
       updateVersionOptions(state.target);
-      versionSelect.value = state.version;
-      renderResults(state);
-      syncQuery(state, replaceHistory);
+      const resolvedVersion = setVersionSelection(state.target, state.version);
+      searchInput.value = state.search;
+      const resolvedState = {
+        ...state,
+        version: resolvedVersion
+      };
+      renderResults(resolvedState);
+      syncQuery(resolvedState, replaceHistory);
     }
 
     const initialState = readStateFromQuery();
@@ -208,12 +260,12 @@ Start with <a href="/features/{{ features[0].slug }}/">{{ features[0].title }}</
     targetSelect.addEventListener("change", () => {
       const target = targetSelect.value;
       const familyOptions = updateVersionOptions(target);
-      versionSelect.value = familyOptions[familyOptions.length - 1].value;
       applyState(
         {
           target,
           mode: modeSelect.value,
-          version: versionSelect.value
+          version: familyOptions[familyOptions.length - 1].value,
+          search: searchInput.value.trim()
         },
         false
       );
@@ -225,7 +277,8 @@ Start with <a href="/features/{{ features[0].slug }}/">{{ features[0].title }}</
         {
           target: targetSelect.value,
           mode: modeSelect.value,
-          version: versionSelect.value
+          version: getSelectedVersionId(targetSelect.value),
+          search: searchInput.value.trim()
         },
         false
       );
@@ -236,23 +289,24 @@ Start with <a href="/features/{{ features[0].slug }}/">{{ features[0].title }}</
         {
           target: targetSelect.value,
           mode: modeSelect.value,
-          version: versionSelect.value
+          version: getSelectedVersionId(targetSelect.value),
+          search: searchInput.value.trim()
         },
         false
       );
     });
 
-    form.addEventListener("submit", (event) => {
-      event.preventDefault();
+    searchInput.addEventListener("input", () => {
       applyState(
         {
           target: targetSelect.value,
           mode: modeSelect.value,
-          version: versionSelect.value
+          version: getSelectedVersionId(targetSelect.value),
+          search: searchInput.value.trim()
         },
         false
       );
-      summary.focus();
     });
+
   })();
 </script>

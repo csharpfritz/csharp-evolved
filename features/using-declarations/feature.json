@@ -1,0 +1,49 @@
+{
+  "slug": "using-declarations",
+  "title": "Using Declarations",
+  "shortTitle": "Using Declarations",
+  "versions": {
+    "csharp": "8.0",
+    "dotnet": "3.0"
+  },
+  "summary": "content/summary.md",
+  "intro": {
+    "path": "content/intro.md"
+  },
+  "sections": [
+    {
+      "title": "Why it matters",
+      "path": "content/sections/why-it-matters.md"
+    },
+    {
+      "title": "Cautions",
+      "path": "content/sections/cautions.md"
+    }
+  ],
+  "learnMore": {
+    "label": "Implement a Dispose method (Microsoft Learn)",
+    "url": "https://learn.microsoft.com/dotnet/standard/garbage-collection/implementing-dispose"
+  },
+  "examples": [
+    {
+      "id": "using-statement-before",
+      "title": "Traditional using block vs using declaration",
+      "description": "Using declarations keep disposal guarantees while reducing block nesting.",
+      "sampleLanguageVersion": "8.0",
+      "snippets": {
+        "before": "using-declarations/using-statement-block.cs",
+        "after": "using-declarations/using-declaration.cs"
+      }
+    },
+    {
+      "id": "multiple-resources",
+      "title": "Multiple resources in one scope",
+      "description": "Each using declaration is disposed automatically at the end of the current scope.",
+      "sampleLanguageVersion": "8.0",
+      "snippets": {
+        "code": "using-declarations/multiple-resources.cs"
+      }
+    }
+  ],
+  "newerCapabilities": []
+}

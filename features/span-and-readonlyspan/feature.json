@@ -1,0 +1,54 @@
+{
+  "slug": "span-and-readonlyspan",
+  "title": "Span<T> and ReadOnlySpan<T>",
+  "shortTitle": "Span<T>",
+  "versions": {
+    "csharp": "7.2",
+    "dotnet": "2.1"
+  },
+  "summary": "content/summary.md",
+  "intro": {
+    "path": "content/intro.md"
+  },
+  "sections": [
+    {
+      "title": "Why it matters",
+      "path": "content/sections/why-it-matters.md"
+    },
+    {
+      "title": "Cautions",
+      "path": "content/sections/cautions.md"
+    }
+  ],
+  "learnMore": {
+    "label": "Span<T> (Microsoft Learn)",
+    "url": "https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/span"
+  },
+  "examples": [
+    {
+      "id": "slice-without-allocation",
+      "title": "Slice arrays without allocation",
+      "description": "Span slices create lightweight views over existing memory instead of new arrays.",
+      "sampleLanguageVersion": "7.2",
+      "snippets": {
+        "code": "span-and-readonlyspan/slice-without-allocation.cs"
+      }
+    },
+    {
+      "id": "readonlyspan-over-string",
+      "title": "Use ReadOnlySpan<char> over strings",
+      "description": "ReadOnlySpan<char> lets you process substrings without allocating new string instances.",
+      "sampleLanguageVersion": "7.2",
+      "snippets": {
+        "code": "span-and-readonlyspan/readonlyspan-over-string.cs"
+      }
+    }
+  ],
+  "newerCapabilities": [
+    {
+      "title": "More implicit span conversions",
+      "csharpVersion": "14.0",
+      "path": "content/newer-capabilities/implicit-span-conversions.md"
+    }
+  ]
+}

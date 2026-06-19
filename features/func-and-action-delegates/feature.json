@@ -1,0 +1,48 @@
+{
+  "slug": "func-and-action-delegates",
+  "title": "Func<T> and Action<T>",
+  "shortTitle": "Func<T> / Action<T>",
+  "versions": {
+    "csharp": "3.0",
+    "dotnet": "3.5"
+  },
+  "summary": "content/summary.md",
+  "intro": {
+    "path": "content/intro.md"
+  },
+  "sections": [
+    {
+      "title": "Why it matters",
+      "path": "content/sections/why-it-matters.md"
+    },
+    {
+      "title": "Cautions",
+      "path": "content/sections/cautions.md"
+    }
+  ],
+  "learnMore": {
+    "label": "Delegate types (Microsoft Learn)",
+    "url": "https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/reference-types#the-delegate-type"
+  },
+  "examples": [
+    {
+      "id": "func-return-value",
+      "title": "Use Func<T> to pass calculations",
+      "description": "Func delegates are ideal when behavior should be injected and a value returned.",
+      "sampleLanguageVersion": "3.0",
+      "snippets": {
+        "code": "func-and-action-delegates/func-return-value.cs"
+      }
+    },
+    {
+      "id": "action-side-effects",
+      "title": "Use Action<T> for side-effect steps",
+      "description": "Action delegates make it easy to pass work that does not return a value.",
+      "sampleLanguageVersion": "3.0",
+      "snippets": {
+        "code": "func-and-action-delegates/action-side-effects.cs"
+      }
+    }
+  ],
+  "newerCapabilities": []
+}

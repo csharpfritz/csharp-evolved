@@ -1,0 +1,3 @@
+- Helps library authors add functionality without immediate breaking changes.
+- Supports gradual migrations where implementations can override when ready.
+- Keeps shared fallback behavior close to the interface contract.

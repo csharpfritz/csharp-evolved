@@ -302,3 +302,45 @@ Feature samples must stay accurate to the feature’s introduction-era versions 
 - Keep homepage snippet markup in the existing `<pre><code>...</code></pre>` structure to preserve renderer/check compatibility.
 - Apply syntax highlighting via a dedicated `highlightCodeInline` Eleventy filter that returns highlighted inner HTML.
 - Preserve snippet indentation/tab behavior while improving readability through token highlighting.
+
+### 2026-06-17 — P1 Feature Validation: Readiness and Wait Status
+**Source:** `decisions/inbox/clark_kent-p1-feature-validation-readiness-and-wait-status.md`
+
+- Scope: Validate P1 samples for tuples/deconstruction (C# 7), switch expressions (C# 8), global using directives (C# 10), file-scoped namespaces (C# 10), required members (C# 11), and raw string literals (C# 11).
+- Current state: Validation is queued pending Cat Grant draft delivery.
+- Validation contract: confirm snippet wiring, compile/version correctness, and feature-accuracy with pass/fail notes.
+
+### 2026-06-19 — Standardized Playwright E2E harness for static Eleventy site
+**Source:** `decisions/inbox/Jimmy_Olsen-standardized-playwright-e2e-harness-for-static-ele.md`
+
+- Standardize Playwright on deterministic local server execution (`npm run serve:e2e`, port 4173) via `webServer` in `playwright.config.js`.
+- Run Chromium-only E2E for stable, fast local/CI behavior.
+- Ensure `/features/` search behavior is user-visible and query-string driven so navigation/search/filter scenarios are testable end-to-end.
+
+
+### 2026-06-19 — Fix feature filter version selector to avoid cross-family value collisions
+**Source:** `decisions/inbox/lois-lane-fix-feature-filter-version-selector-to-avoid-cross.md`
+
+- Fixed `/features/` version selector logic to resolve selected option by `(family + value)` so C#/.NET options sharing values (for example `7.0`, `8.0`) cannot cross-select hidden options.
+- Updated `src/features/index.md` state application and event handlers to use family-aware selection/read helpers.
+- Added Playwright coverage in `test/e2e/features.spec.js` asserting .NET selections display the correct option text and prevent regression.
+
+### 2026-06-19 — Enforce true hiding for filtered feature cards
+**Source:** `decisions/inbox/lois-lane-enforced-true-hiding-for-filtered-feature-cards.md`
+
+- Keep filter logic and URL behavior unchanged; enforce hidden-card display at presentation layer with `.feature-card[hidden] { display:none; }`.
+- Update e2e assertions to check user-visible hiding (`toBeHidden`) and add regression coverage for C# up-to-including 6.0 so C# 12 cards are not shown.
+
+### 2026-06-19 — Remove redundant Apply Filters button from features page
+**Source:** `decisions/inbox/lois_lane-removed-redundant-apply-filters-button-from-featur.md`
+
+- Removed redundant **Apply filters** button from `src/features/index.md`; filtering now applies immediately on control changes and search input.
+- Kept reset behavior and URL query synchronization while removing submit-only handling.
+- Updated E2E coverage in `test/e2e/features.spec.js` and styling in `src/assets/site.css` to validate immediate filter application.
+
+### 2026-06-19 — Theme contrast refresh for the C# Evolved site
+**Source:** `decisions/inbox/lois-theme-contrast-refresh.md`
+
+- Elevated the default palette with a deeper midnight-blue base, brighter violet accents, and cyan highlights to keep the existing cool blue/purple identity while increasing contrast.
+- Applied the refreshed tokens to the body background, header/footer shell, hero panel, cards, and link/hover states without changing content structure or page behavior.
+- Kept the styling focused on visual polish so the site feels more energetic while remaining readable and consistent.

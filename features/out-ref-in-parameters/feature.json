@@ -1,0 +1,57 @@
+{
+  "slug": "out-ref-in-parameters",
+  "title": "out, ref, and in Parameters",
+  "shortTitle": "out / ref / in",
+  "versions": {
+    "csharp": "7.2",
+    "dotnet": "2.1"
+  },
+  "summary": "content/summary.md",
+  "intro": {
+    "path": "content/intro.md"
+  },
+  "sections": [
+    {
+      "title": "Why it matters",
+      "path": "content/sections/why-it-matters.md"
+    },
+    {
+      "title": "Cautions",
+      "path": "content/sections/cautions.md"
+    }
+  ],
+  "learnMore": {
+    "label": "Method parameters (Microsoft Learn)",
+    "url": "https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/method-parameters"
+  },
+  "examples": [
+    {
+      "id": "try-parse-out",
+      "title": "Use out for parse-style APIs",
+      "description": "out parameters return extra values while signaling success or failure.",
+      "sampleLanguageVersion": "7.0",
+      "snippets": {
+        "code": "out-ref-in-parameters/try-parse-out.cs"
+      }
+    },
+    {
+      "id": "ref-mutation",
+      "title": "Use ref when caller state should be updated",
+      "description": "ref parameters let methods modify caller variables directly.",
+      "sampleLanguageVersion": "7.0",
+      "snippets": {
+        "code": "out-ref-in-parameters/ref-mutation.cs"
+      }
+    },
+    {
+      "id": "in-for-readonly-large-struct",
+      "title": "Use in for readonly pass-by-reference",
+      "description": "in passes large value types by reference while preventing modification.",
+      "sampleLanguageVersion": "7.2",
+      "snippets": {
+        "code": "out-ref-in-parameters/in-readonly-parameter.cs"
+      }
+    }
+  ],
+  "newerCapabilities": []
+}
