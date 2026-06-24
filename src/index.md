@@ -45,12 +45,12 @@ templateEngineOverride: njk
   </article>
 </section>
 
-{% if homeFeatures and homeFeatures.length %}
-<h2>Feature demos</h2>
-<p>Browse full source demos for every feature in one place.</p>
+{% if spotlightFeatures and spotlightFeatures.length %}
+<h2>Featured demos</h2>
+<p>Explore a curated set of full source demos, then dive deeper on the features page.</p>
 
 <section class="grid feature-snippet-grid home-feature-snippet-grid" aria-label="Feature demos">
-{% for feature in homeFeatures %}
+{% for feature in spotlightFeatures %}
 {% set example = feature.examples[0] %}
 {% set snippetDescription = (example and example.description) or feature.summary %}
   <article class="card feature-snippet-card home-feature-snippet-card">

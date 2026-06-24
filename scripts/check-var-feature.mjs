@@ -91,9 +91,9 @@ const checks = [
       "class=\"hero-cta\"",
       "Explore the features",
       "<div class=\"hero-code\">",
-      "<h2>Feature demos</h2>",
+      "<h2>Featured demos</h2>",
       "class=\"grid feature-snippet-grid home-feature-snippet-grid\"",
-      "{% for feature in homeFeatures %}",
+      "{% for feature in spotlightFeatures %}",
       "class=\"card feature-snippet-card home-feature-snippet-card\""
     ],
     forbiddenSnippets: [
@@ -542,10 +542,10 @@ const homeDemoSection = homeDemoSectionMatch[0];
 const renderedHomeDemoCards = homeDemoSection.match(
   /<article class="[^"]*\bfeature-snippet-card\b[^"]*\bhome-feature-snippet-card\b[^"]*">[\s\S]*?<\/article>/g
 );
-const homeFeatures = require("../src/_data/homeFeatures.js");
-if (!renderedHomeDemoCards || renderedHomeDemoCards.length !== homeFeatures.length) {
+const spotlightFeatures = require("../src/_data/spotlightFeatures.js");
+if (!renderedHomeDemoCards || renderedHomeDemoCards.length !== spotlightFeatures.length) {
   throw new Error(
-    `Landing page demo card count (${renderedHomeDemoCards?.length ?? 0}) does not match source (${homeFeatures.length})`
+    `Landing page demo card count (${renderedHomeDemoCards?.length ?? 0}) does not match source (${spotlightFeatures.length})`
   );
 }
 
