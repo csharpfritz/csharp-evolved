@@ -489,7 +489,7 @@ pre {
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
   align-items: center;
-  padding: 3rem 0 2.5rem;
+  padding: 2.75rem 2rem 2.5rem;
   border-bottom: 1px solid var(--color-border, #334);
   margin: 0 0 2rem;
 }
@@ -625,6 +625,7 @@ pre {
 @media (max-width: 768px) {
   .hero {
     grid-template-columns: 1fr;
+    padding: 2rem 1.25rem 1.75rem;
   }
   .hero h1 { font-size: 2rem; }
 }
