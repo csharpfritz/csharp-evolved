@@ -38,3 +38,14 @@ Initial DevRel context seeded.
 - Created `src/_data/snippets.js` data layer with slug-sorted loading and silent JSON error handling.
 - Separate agent (cat-analyzers-page) currently writing the `/analyzers/` site page — pending.
 - Scribe merged the snippets decision into `decisions.md`; cat-analyzers-page inbox entry left pending for next session.
+
+## 2026-06-24T12:19:46Z
+- (cat-snippets-remaining) Created 32 snippet files for the 16 remaining C# features — snippets directory now covers all 26 features (52 total files).
+  - Slugs: `async-await`, `default-interface-members`, `extension-methods`, `file-scoped-namespaces`, `func-and-action-delegates`, `global-using-directives`, `init-accessors`, `lambda-expressions`, `linq`, `list-patterns`, `nullable-reference-types`, `out-ref-in-parameters`, `raw-string-literals`, `span-and-readonlyspan`, `static-abstract-interface-members`, `top-level-statements`.
+  - `npm run build` passed cleanly (30 pages, `check:var` passed).
+- (cat-analyzers-page) Added `/analyzers/` as the 4th top-level site section.
+  - Created `src/analyzers/index.md` with value prop, CSE001 before/after example, install instructions, reference table (CSE001–CSE003), `.editorconfig` severity config.
+  - Updated nav in `src/_includes/layout.njk` and `src/index.md`; `expectedPrimaryNavLinks` updated to 4 in `scripts/check-var-feature.mjs`.
+  - Nav is now: Home, Features, Snippets, Analyzers.
+  - `npm run build` passed cleanly.
+- Scribe merged both decisions into `decisions.md` and cleared inbox entries.

@@ -88,3 +88,10 @@ Initial frontend context seeded.
 - Added passthrough copy in `.eleventy.js` to serve `snippets/` directory at runtime.
 - `npm run build` passed.
 - Scribe merged the snippets decision into `decisions.md` and cleared the inbox entry.
+
+## 2026-06-24T12:19:46Z
+- Added `.github/workflows/deploy.yml` — two-job GitHub Actions pipeline (build + deploy to Pages) triggered on push to `main` and `workflow_dispatch`.
+- Verified no `pathPrefix` needed in `.eleventy.js` (site at root of `https://csharpevolved.github.io`).
+- Created `docs/github-pages-migration.md` documenting manual org/repo transfer and Pages activation steps.
+- `npm run build` passed — 53 files copied, 30 HTML files written.
+- Scribe merged decision into `decisions.md` and cleared inbox entry.

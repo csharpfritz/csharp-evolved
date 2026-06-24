@@ -44,3 +44,13 @@ Initial backend/sample context seeded.
 - 45 files verified valid with no changes.
 - Separately scaffolded `analyzers/CSharpEvolved.Analyzers` Roslyn package (CSE001–CSE003); build succeeded.
 - Scribe merged both decisions into `decisions.md` and cleared inbox entries.
+
+## 2026-06-24T12:19:46Z
+- Added four new Roslyn analyzers (CSE004–CSE007) to `CSharpEvolved.Analyzers`:
+  - CSE004 `SwitchStatementAnalyzer`: `switch` statement → switch expression (C# 8.0)
+  - CSE005 `TupleLiteralAnalyzer`: `Tuple.Create()` / `new Tuple<>()` → tuple literal (C# 7.0)
+  - CSE006 `IsPatternAnalyzer`: `if (x is Foo)` + cast → is-pattern with variable (C# 7.0)
+  - CSE007 `NullConditionalAnalyzer`: `x != null ? x.Member : null` → `?.` (C# 6.0)
+- Updated `AnalyzerReleases.Unshipped.md` and `README.md` with new analyzer entries.
+- `dotnet build` succeeded — 8 warnings, 0 errors (all pre-existing).
+- Scribe merged decision into `decisions.md` and cleared inbox entry.

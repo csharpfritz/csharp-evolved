@@ -5,56 +5,56 @@ templateEngineOverride: njk
 ---
 
 <section class="hero">
-  <h1>C# Evolved</h1>
-  <p class="lead">
-    A reference site for developers who want to do more with the C# language, with practical
-    examples and version-aware guidance.
-  </p>
-  <nav class="hero-nav" aria-label="Primary">
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/features/">Explore features</a></li>
-      <li><a href="/snippets/">Browse snippets</a></li>
-      <li><a href="/analyzers/">Analyzers</a></li>
-    </ul>
-  </nav>
+  <div class="hero-content">
+    <h1>C# <span class="hero-accent">Evolved</span></h1>
+    <p class="lead">See how C# has grown from .NET Framework 3.5 to modern C# 13 — with version-accurate examples, editor snippets, and Roslyn analyzers to help you upgrade.</p>
+    <a href="/features/" class="hero-cta">Explore all 26 features →</a>
+  </div>
+  <div class="hero-code">
+    <div class="hero-code-before">
+      <span class="hero-code-label">C# 2.0</span>
+      <pre><code class="hljs language-csharp">{{ 'string message = string.Format(\n    "Hello, {0}! You have {1} messages.",\n    name, count);' | highlightCodeInline("csharp") | safe }}</code></pre>
+    </div>
+    <div class="hero-code-after">
+      <span class="hero-code-label">C# 6.0+</span>
+      <pre><code class="hljs language-csharp">{{ 'string message =\n    $"Hello, {name}! You have {count} messages.";' | highlightCodeInline("csharp") | safe }}</code></pre>
+    </div>
+  </div>
 </section>
 
-<section class="grid" aria-label="Content sections">
+<section class="grid feature-cards-grid" aria-label="Content sections">
   <article class="card">
     <h2>Language Features</h2>
-    <p>Track updates by C# version and understand what changed with concise examples.</p>
+    <p>26 features from C# 3 to C# 13 — with version-accurate examples and upgrade guidance.</p>
     <a href="/features/">Explore features →</a>
   </article>
   <article class="card">
     <h2>Snippet Library</h2>
-    <p>Reusable examples for pattern matching, required members, records, and more.</p>
+    <p>Copy-ready snippets for Visual Studio and VS Code. One per feature, available in both formats.</p>
     <a href="/snippets/">Browse snippets →</a>
   </article>
   <article class="card">
-    <h2>Ready for Expansion</h2>
-    <p>Structured layout and navigation prepared for additional guides and release notes.</p>
+    <h2>Analyzers</h2>
+    <p>Roslyn analyzers that surface upgrade opportunities in your existing code — right in your editor.</p>
+    <a href="/analyzers/">See analyzers →</a>
   </article>
 </section>
 
-{% if homeFeatures and homeFeatures.length %}
-<!-- ## Feature snippets -->
-<h2>Feature snippets</h2>
-<p>Browse every feature at a glance in deterministic shuffled order.</p>
-
-<section class="grid feature-snippet-grid home-feature-snippet-grid" aria-label="Feature snippets">
-{% for feature in homeFeatures %}
-{% set example = feature.examples[0] %}
-{% set snippetDescription = (example and example.description) or feature.summary %}
-  <article class="card feature-snippet-card home-feature-snippet-card">
-    <h3 class="home-feature-snippet-title"><a href="/features/{{ feature.slug }}/">{{ feature.title }}</a></h3>
-{% if snippetDescription %}
-    <p class="home-feature-snippet-description">{{ snippetDescription | renderMarkdownInline | safe }}</p>
-{% endif %}
-{% if example and (example.afterCode or example.code or example.beforeCode) %}
-    <pre><code>{{ (example.afterCode or example.code or example.beforeCode) | highlightCodeInline("csharp") | safe }}</code></pre>
-{% endif %}
-  </article>
-{% endfor %}
+<section class="spotlight-section" aria-labelledby="spotlight-heading">
+  <h2 id="spotlight-heading">Where to start</h2>
+  <p class="spotlight-subtitle">Six features that define the evolution of modern C#.</p>
+  <div class="spotlight-grid">
+  {% for feature in spotlightFeatures %}
+    <article class="card spotlight-card">
+      <div class="spotlight-card-header">
+        <h3 class="spotlight-card-title">
+          <a href="/features/{{ feature.slug }}/">{{ feature.title }}</a>
+        </h3>
+        <span class="spotlight-version-badge">{{ feature.versions.csharp.label }}</span>
+      </div>
+      <p class="spotlight-card-description">{{ feature.spotlightDescription }}</p>
+      <a href="/features/{{ feature.slug }}/" class="spotlight-card-link">Learn more →</a>
+    </article>
+  {% endfor %}
+  </div>
 </section>
-{% endif %}

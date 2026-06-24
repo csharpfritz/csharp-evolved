@@ -85,13 +85,22 @@ const checks = [
   {
     file: "src/index.md",
     snippets: [
-      "## Feature snippets",
-      "deterministic shuffled order",
-      "<section class=\"grid feature-snippet-grid home-feature-snippet-grid\" aria-label=\"Feature snippets\">",
-      "<h3 class=\"home-feature-snippet-title\"><a href=\"/features/{{ feature.slug }}/\">{{ feature.title }}</a></h3>"
+      "<section class=\"hero\">",
+      "<div class=\"hero-content\">",
+      "class=\"hero-cta\"",
+      "Explore all 26 features",
+      "<div class=\"hero-code\">",
+      "<section class=\"spotlight-section\"",
+      "{% for feature in spotlightFeatures %}",
+      "class=\"card spotlight-card\"",
+      "class=\"spotlight-card-link\""
     ],
-    regexes: [
-      /<article class="[^"]*\bfeature-snippet-card\b[^"]*\bhome-feature-snippet-card\b[^"]*">/
+    forbiddenSnippets: [
+      "<nav class=\"hero-nav\"",
+      "Feature snippets",
+      "deterministic shuffled order",
+      "home-feature-snippet-grid",
+      "Ready for Expansion"
     ]
   },
   {
@@ -497,7 +506,7 @@ function extractPrimaryNavLinks(content, file) {
   return [...navMatch[1].matchAll(/<a\s+href="([^"]+)"/g)].map((match) => match[1]);
 }
 
-for (const file of ["_site/index.html", "_site/features/index.html"]) {
+for (const file of ["_site/features/index.html"]) {
   const content = readFileSync(file, "utf8");
   const links = extractPrimaryNavLinks(content, file);
   if (links.length !== expectedPrimaryNavLinks.length) {
@@ -515,53 +524,30 @@ for (const file of ["_site/index.html", "_site/features/index.html"]) {
   }
 }
 
-const homeFeatures = require("../src/_data/homeFeatures.js");
-if (!Array.isArray(homeFeatures) || homeFeatures.length === 0) {
-  throw new Error("Expected src/_data/homeFeatures.js to export at least one feature");
-}
-
 const renderedHome = readFileSync("_site/index.html", "utf8");
-const snippetSectionMatch = renderedHome.match(
-  /<section class="[^"]*\bfeature-snippet-grid\b[^"]*\bhome-feature-snippet-grid\b[^"]*" aria-label="Feature snippets">[\s\S]*?<\/section>/
-);
-if (!snippetSectionMatch) {
-  throw new Error("Landing page is missing the feature snippet grid section");
+
+// Verify hero-cta is present (replaces old hero nav)
+if (!/<a[^>]+class="[^"]*hero-cta[^"]*"[^>]*>/.test(renderedHome)) {
+  throw new Error("Landing page is missing the hero-cta link");
 }
 
-const snippetSection = snippetSectionMatch[0];
-const renderedSnippetCards = snippetSection.match(
-  /<article class="[^"]*\bfeature-snippet-card\b[^"]*\bhome-feature-snippet-card\b[^"]*">[\s\S]*?<\/article>/g
+// Verify spotlight section is present
+const spotlightSectionMatch = renderedHome.match(
+  /<section class="spotlight-section"[^>]*>[\s\S]*?<\/section>/
 );
-if (!renderedSnippetCards || renderedSnippetCards.length !== homeFeatures.length) {
+if (!spotlightSectionMatch) {
+  throw new Error("Landing page is missing the spotlight section");
+}
+
+const spotlightSection = spotlightSectionMatch[0];
+const renderedSpotlightCards = spotlightSection.match(
+  /<article class="[^"]*\bspotlight-card\b[^"]*">[\s\S]*?<\/article>/g
+);
+const spotlightFeatures = require("../src/_data/spotlightFeatures.js");
+if (!renderedSpotlightCards || renderedSpotlightCards.length !== spotlightFeatures.length) {
   throw new Error(
-    `Landing page feature snippet card count (${renderedSnippetCards?.length ?? 0}) does not match source (${homeFeatures.length})`
+    `Landing page spotlight card count (${renderedSpotlightCards?.length ?? 0}) does not match source (${spotlightFeatures.length})`
   );
-}
-
-const renderedSnippetSlugs = renderedSnippetCards.map((card) => {
-  const slugMatch = card.match(/href="\/features\/([^/]+)\//);
-  if (!slugMatch) {
-    throw new Error("Feature snippet card is missing a feature link");
-  }
-
-  if (!/<h3 class="home-feature-snippet-title">\s*<a href="\/features\/[^/]+\/">[\s\S]*?<\/a>\s*<\/h3>/.test(card)) {
-    throw new Error(`Feature snippet card for ${slugMatch[1]} is missing a title link`);
-  }
-
-  if (!/<pre><code>[\s\S]*?<\/code><\/pre>/.test(card)) {
-    throw new Error(`Feature snippet card for ${slugMatch[1]} is missing a snippet`);
-  }
-
-  return slugMatch[1];
-});
-
-const expectedSnippetSlugs = homeFeatures.map((feature) => feature.slug);
-for (let index = 0; index < expectedSnippetSlugs.length; index += 1) {
-  if (renderedSnippetSlugs[index] !== expectedSnippetSlugs[index]) {
-    throw new Error(
-      `Landing page feature snippet order mismatch. Expected ${expectedSnippetSlugs.join(", ")}, got ${renderedSnippetSlugs.join(", ")}`
-    );
-  }
 }
 
 const renderedFeaturesIndex = readFileSync("_site/features/index.html", "utf8");

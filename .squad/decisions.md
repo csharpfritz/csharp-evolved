@@ -66,6 +66,45 @@
 - Added `eleventyConfig.addPassthroughCopy({ "snippets": "snippets" })` to `.eleventy.js`.
 - `npm run build` passed.
 
+### 2026-06-24 — Snippets expanded to all 26 features (32 new snippet files)
+**Source:** `decisions/inbox/cat-snippets-remaining-2026-06-24.md`
+
+- Added `vs-snippet.snippet` and `vscode.json` for 16 previously uncovered features, bringing total snippet coverage from 10 to 26 features (52 snippet files total).
+- New slugs: `async-await`, `default-interface-members`, `extension-methods`, `file-scoped-namespaces`, `func-and-action-delegates`, `global-using-directives`, `init-accessors`, `lambda-expressions`, `linq`, `list-patterns`, `nullable-reference-types`, `out-ref-in-parameters`, `raw-string-literals`, `span-and-readonlyspan`, `static-abstract-interface-members`, `top-level-statements`.
+- All snippets use valid, compilable C# syntax with proper VS XML format and VS Code JSON format.
+- `npm run build` (including `check:var`) passes cleanly with 30 pages written.
+
+### 2026-06-24 — Roslyn analyzers CSE004–CSE007 added
+**Source:** `decisions/inbox/clark-more-analyzers-2026-06-24.md`
+
+- Added four new Roslyn analyzers to `CSharpEvolved.Analyzers`:
+  - CSE004 `SwitchStatementAnalyzer`: detects `switch` statements convertible to switch expressions (C# 8.0).
+  - CSE005 `TupleLiteralAnalyzer`: detects `Tuple.Create()` / `new Tuple<T1,T2>()` convertible to tuple literals (C# 7.0).
+  - CSE006 `IsPatternAnalyzer`: detects `if (x is Foo)` + cast patterns (C# 7.0).
+  - CSE007 `NullConditionalAnalyzer`: detects `x != null ? x.Member : null` convertible to `?.` (C# 6.0).
+- All files placed under `Analyzers\` alongside CSE001–CSE003; `ImmutableArray.Create(Rule)` used for netstandard2.0 compatibility.
+- `dotnet build` succeeded (8 warnings, 0 errors, all pre-existing RS1033/RS2007).
+
+### 2026-06-24 — GitHub Pages deployment workflow added
+**Source:** `decisions/inbox/lois-github-pages-2026-06-24.md`
+
+- Added `.github/workflows/deploy.yml` with two-job build+deploy pipeline targeting GitHub Pages via `actions/deploy-pages@v4`.
+- Triggers: push to `main` and manual `workflow_dispatch`.
+- No `pathPrefix` needed: site serves from `/` on the org root page `https://csharpevolved.github.io`.
+- No CNAME file: target is GitHub Pages subdomain, not a custom domain.
+- Created `docs/github-pages-migration.md` documenting manual org/repo setup steps.
+- Pending manual steps: create `csharpevolved` org, transfer repo, enable Pages source in Settings.
+- `npm run build` passes: 53 files copied, 30 HTML files written.
+
+### 2026-06-24 — Analyzers site page and nav updated (/analyzers/)
+**Source:** `decisions/inbox/cat-analyzers-page-2026-06-24.md`
+
+- Added `/analyzers/` as the fourth top-level site section (`src/analyzers/index.md`).
+- Page covers: value proposition, before/after CSE001 example, installation (local path), reference table for CSE001–CSE003, `.editorconfig` severity config.
+- Nav updated in `src/_includes/layout.njk` and `src/index.md` (Primary nav); `scripts/check-var-feature.mjs` `expectedPrimaryNavLinks` updated from 3 to 4.
+- Nav is now exactly: Home, Features, Snippets, Analyzers.
+- `npm run build` (including `check:var`) passes cleanly.
+
 ## Governance
 
 - All meaningful changes require team consensus.
