@@ -45,21 +45,23 @@ templateEngineOverride: njk
   </article>
 </section>
 
-<section class="spotlight-section" aria-labelledby="spotlight-heading">
-  <h2 id="spotlight-heading">Where to start</h2>
-  <p class="spotlight-subtitle">Essential features that define the evolution of modern C#.</p>
-  <div class="spotlight-grid">
-  {% for feature in spotlightFeatures %}
-    <article class="card spotlight-card">
-      <div class="spotlight-card-header">
-        <h3 class="spotlight-card-title">
-          <a href="/features/{{ feature.slug }}/">{{ feature.title }}</a>
-        </h3>
-        <span class="spotlight-version-badge">{{ feature.versions.csharp.label }}</span>
-      </div>
-      <p class="spotlight-card-description">{{ feature.spotlightDescription }}</p>
-      <a href="/features/{{ feature.slug }}/" class="spotlight-card-link">Learn more →</a>
-    </article>
-  {% endfor %}
-  </div>
+{% if homeFeatures and homeFeatures.length %}
+<h2>Feature demos</h2>
+<p>Browse full source demos for every feature in one place.</p>
+
+<section class="grid feature-snippet-grid home-feature-snippet-grid" aria-label="Feature demos">
+{% for feature in homeFeatures %}
+{% set example = feature.examples[0] %}
+{% set snippetDescription = (example and example.description) or feature.summary %}
+  <article class="card feature-snippet-card home-feature-snippet-card">
+    <h3 class="home-feature-snippet-title"><a href="/features/{{ feature.slug }}/">{{ feature.title }}</a></h3>
+{% if snippetDescription %}
+    <p class="home-feature-snippet-description">{{ snippetDescription | renderMarkdownInline | safe }}</p>
+{% endif %}
+{% if example and (example.afterCode or example.code or example.beforeCode) %}
+    <pre><code>{{ (example.afterCode or example.code or example.beforeCode) | highlightCodeInline("csharp") | safe }}</code></pre>
+{% endif %}
+  </article>
+{% endfor %}
 </section>
+{% endif %}

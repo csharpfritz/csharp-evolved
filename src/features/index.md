@@ -67,27 +67,42 @@ Organized starting points for content that can grow into full feature guides.
   <p id="feature-filter-summary" class="feature-filter-summary" tabindex="-1"></p>
 </section>
 
-<section class="grid tiled-card-grid feature-grid" aria-label="Feature guides">
+<section class="grid feature-demos-grid" aria-label="Feature demos">
 {% for feature in features %}
 <article
-  class="card tiled-card feature-card"
+  class="card feature-card feature-demo-card"
   data-csharp-order="{{ feature.versions.csharp.order }}"
   data-dotnet-order="{{ feature.versions.dotnet.order }}"
   data-search-text="{{ (feature.title + ' ' + feature.summary) | lower | escape }}"
 >
-<header class="tiled-card-header">
-  <h2><a href="/features/{{ feature.slug }}/">{{ feature.title }}</a></h2>
-</header>
-<div class="tiled-card-body">
+  <header class="feature-demo-header">
+    <h2><a href="/features/{{ feature.slug }}/">{{ feature.title }}</a></h2>
+    <p class="feature-version-pills" aria-label="Version support">
+      <span class="feature-pill feature-pill-csharp">{{ feature.versions.csharp.label }}</span>
+      <span class="feature-pill feature-pill-dotnet">{{ feature.versions.dotnet.label }}</span>
+    </p>
+  </header>
   <p class="feature-card-summary">{{ feature.summary }}</p>
-</div>
-<footer class="tiled-card-footer">
-  <p><a href="/features/{{ feature.slug }}/">Read sample guide →</a></p>
-  <p class="feature-version-pills" aria-label="Version support">
-    <span class="feature-pill feature-pill-csharp">{{ feature.versions.csharp.label }}</span>
-    <span class="feature-pill feature-pill-dotnet">{{ feature.versions.dotnet.label }}</span>
-  </p>
-</footer>
+
+  {% for example in feature.examples %}
+    <section class="feature-demo-example">
+      <h3>{{ example.title }}</h3>
+      {% if example.description %}
+        <p>{{ example.description }}</p>
+      {% endif %}
+
+      {% if example.beforeCode and example.afterCode %}
+        <h4>Before</h4>
+        {{ example.beforeCode | highlightCode("csharp") | safe }}
+        <h4>After</h4>
+        {{ example.afterCode | highlightCode("csharp") | safe }}
+      {% elseif example.code %}
+        {{ example.code | highlightCode("csharp") | safe }}
+      {% endif %}
+    </section>
+  {% endfor %}
+
+  <p><a href="/features/{{ feature.slug }}/">Read full guide →</a></p>
 </article>
 {% endfor %}
 </section>

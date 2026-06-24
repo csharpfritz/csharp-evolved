@@ -91,16 +91,15 @@ const checks = [
       "class=\"hero-cta\"",
       "Explore the features",
       "<div class=\"hero-code\">",
-      "<section class=\"spotlight-section\"",
-      "{% for feature in spotlightFeatures %}",
-      "class=\"card spotlight-card\"",
-      "class=\"spotlight-card-link\""
+      "<h2>Feature demos</h2>",
+      "class=\"grid feature-snippet-grid home-feature-snippet-grid\"",
+      "{% for feature in homeFeatures %}",
+      "class=\"card feature-snippet-card home-feature-snippet-card\""
     ],
     forbiddenSnippets: [
       "<nav class=\"hero-nav\"",
       "Feature snippets",
       "deterministic shuffled order",
-      "home-feature-snippet-grid",
       "Ready for Expansion"
     ]
   },
@@ -146,20 +145,19 @@ const checks = [
   {
     file: "src/features/index.md",
     snippets: [
-      "<section class=\"grid tiled-card-grid feature-grid\" aria-label=\"Feature guides\">",
-      "class=\"card tiled-card feature-card\"",
-      "<header class=\"tiled-card-header\">",
-      "<div class=\"tiled-card-body\">",
-      "<footer class=\"tiled-card-footer\">",
+      "<section class=\"grid feature-demos-grid\" aria-label=\"Feature demos\">",
+      "class=\"card feature-card feature-demo-card\"",
+      "<header class=\"feature-demo-header\">",
+      "class=\"feature-demo-example\"",
       "class=\"feature-version-pills\"",
       "class=\"feature-pill feature-pill-csharp\"",
       "class=\"feature-pill feature-pill-dotnet\""
     ],
     regexes: [
-      /<section class="grid tiled-card-grid feature-grid" aria-label="Feature guides">\s*{% for feature in features %}/,
-      /class="card tiled-card feature-card"[\s\S]*?data-csharp-order="{{ feature\.versions\.csharp\.order }}"/,
-      /class="card tiled-card feature-card"[\s\S]*?data-dotnet-order="{{ feature\.versions\.dotnet\.order }}"/,
-      /<footer class="tiled-card-footer">[\s\S]*?class="feature-version-pills"[\s\S]*?class="feature-pill feature-pill-csharp"[\s\S]*?class="feature-pill feature-pill-dotnet"[\s\S]*?<\/footer>/
+      /<section class="grid feature-demos-grid" aria-label="Feature demos">\s*{% for feature in features %}/,
+      /class="card feature-card feature-demo-card"[\s\S]*?data-csharp-order="{{ feature\.versions\.csharp\.order }}"/,
+      /class="card feature-card feature-demo-card"[\s\S]*?data-dotnet-order="{{ feature\.versions\.dotnet\.order }}"/,
+      /class="feature-version-pills"[\s\S]*?class="feature-pill feature-pill-csharp"[\s\S]*?class="feature-pill feature-pill-dotnet"/
     ]
   },
   {
@@ -532,57 +530,35 @@ if (!/<a[^>]+class="[^"]*hero-cta[^"]*"[^>]*>/.test(renderedHome)) {
   throw new Error("Landing page is missing the hero-cta link");
 }
 
-// Verify spotlight section is present
-const spotlightSectionMatch = renderedHome.match(
-  /<section class="spotlight-section"[^>]*>[\s\S]*?<\/section>/
+// Verify home feature demos wall is present
+const homeDemoSectionMatch = renderedHome.match(
+  /<section class="grid feature-snippet-grid home-feature-snippet-grid"[^>]*>[\s\S]*?<\/section>/
 );
-if (!spotlightSectionMatch) {
-  throw new Error("Landing page is missing the spotlight section");
+if (!homeDemoSectionMatch) {
+  throw new Error("Landing page is missing the home feature demos wall");
 }
 
-const spotlightSection = spotlightSectionMatch[0];
-const renderedSpotlightCards = spotlightSection.match(
-  /<article class="[^"]*\bspotlight-card\b[^"]*">[\s\S]*?<\/article>/g
+const homeDemoSection = homeDemoSectionMatch[0];
+const renderedHomeDemoCards = homeDemoSection.match(
+  /<article class="[^"]*\bfeature-snippet-card\b[^"]*\bhome-feature-snippet-card\b[^"]*">[\s\S]*?<\/article>/g
 );
-const spotlightFeatures = require("../src/_data/spotlightFeatures.js");
-if (!renderedSpotlightCards || renderedSpotlightCards.length !== spotlightFeatures.length) {
+const homeFeatures = require("../src/_data/homeFeatures.js");
+if (!renderedHomeDemoCards || renderedHomeDemoCards.length !== homeFeatures.length) {
   throw new Error(
-    `Landing page spotlight card count (${renderedSpotlightCards?.length ?? 0}) does not match source (${spotlightFeatures.length})`
+    `Landing page demo card count (${renderedHomeDemoCards?.length ?? 0}) does not match source (${homeFeatures.length})`
   );
 }
 
 const renderedFeaturesIndex = readFileSync("_site/features/index.html", "utf8");
-const featureGridSectionMatch = renderedFeaturesIndex.match(
-  /<section class="grid tiled-card-grid feature-grid" aria-label="Feature guides">[\s\S]*?<\/section>/
-);
-if (!featureGridSectionMatch) {
-  throw new Error("Features page is missing the tiled-card feature grid section");
+if (!renderedFeaturesIndex.includes('<section class="grid feature-demos-grid" aria-label="Feature demos">')) {
+  throw new Error("Features page is missing the feature demos section");
 }
 
-const featureGridSection = featureGridSectionMatch[0];
-const featureGridInnerContent = featureGridSection
-  .replace(
-    /^<section class="grid tiled-card-grid feature-grid" aria-label="Feature guides">/,
-    ""
-  )
-  .replace(/<\/section>$/, "")
-  .trim();
-
-if (
-  !/^(?:\s*<article[\s\S]*?class="[^"]*\bcard\b[^"]*\btiled-card\b[^"]*\bfeature-card\b[^"]*"[\s\S]*?<\/article>\s*)+$/.test(
-    featureGridInnerContent
-  )
-) {
-  throw new Error(
-    "Features page grid must contain direct child article cards with card/tiled-card/feature-card classes"
-  );
-}
-
-const renderedFeatureCards = featureGridSection.match(
-  /<article[\s\S]*?class="[^"]*\bcard\b[^"]*\btiled-card\b[^"]*\bfeature-card\b[^"]*"[\s\S]*?<\/article>/g
+const renderedFeatureCards = renderedFeaturesIndex.match(
+  /<article[\s\S]*?class="[^"]*\bcard\b[^"]*\bfeature-card\b[^"]*\bfeature-demo-card\b[^"]*"[\s\S]*?<\/article>/g
 );
 if (!renderedFeatureCards || renderedFeatureCards.length === 0) {
-  throw new Error("Features page is missing feature cards in the tiled grid");
+  throw new Error("Features page is missing feature demo cards");
 }
 
 const features = require("../src/_data/features.js");
@@ -599,7 +575,7 @@ if (renderedFeatureCards.length !== features.length) {
 const renderedFeatureSlugs = renderedFeatureCards.map((card) => {
   const linkMatch = card.match(/<h2>\s*<a href="\/features\/([^/]+)\//);
   if (!linkMatch) {
-    throw new Error("Feature tile is missing an h2 link");
+    throw new Error("Feature demo card is missing an h2 link");
   }
 
   return linkMatch[1];
@@ -609,44 +585,38 @@ const expectedFeatureSlugs = features.map((feature) => feature.slug);
 for (let index = 0; index < expectedFeatureSlugs.length; index += 1) {
   if (renderedFeatureSlugs[index] !== expectedFeatureSlugs[index]) {
     throw new Error(
-      `Features tile order mismatch. Expected ${expectedFeatureSlugs.join(", ")}, got ${renderedFeatureSlugs.join(", ")}`
+      `Features demo order mismatch. Expected ${expectedFeatureSlugs.join(", ")}, got ${renderedFeatureSlugs.join(", ")}`
     );
   }
 }
 
 for (const card of renderedFeatureCards) {
-  if (!/class="[^"]*\bcard\b[^"]*\btiled-card\b[^"]*\bfeature-card\b[^"]*"/.test(card)) {
-    throw new Error("Feature card is missing required card/tiled-card/feature-card classes");
+  if (!/class="[^"]*\bcard\b[^"]*\bfeature-card\b[^"]*\bfeature-demo-card\b[^"]*"/.test(card)) {
+    throw new Error("Feature card is missing required card/feature-card/feature-demo-card classes");
   }
 
-  if (!/<header class="tiled-card-header">[\s\S]*?<\/header>/.test(card)) {
-    throw new Error("Feature card is missing tiled-card-header structure");
+  if (!/<header class="feature-demo-header">[\s\S]*?<\/header>/.test(card)) {
+    throw new Error("Feature card is missing feature-demo-header structure");
   }
 
-  if (!/<div class="tiled-card-body">[\s\S]*?<\/div>/.test(card)) {
-    throw new Error("Feature card is missing tiled-card-body structure");
+  if (!/class="feature-demo-example"/.test(card)) {
+    throw new Error("Feature card is missing a feature-demo-example section");
   }
-
-  const footerMatch = card.match(/<footer class="tiled-card-footer">[\s\S]*?<\/footer>/);
-  if (!footerMatch) {
-    throw new Error("Feature card is missing tiled-card-footer structure");
-  }
-  const footer = footerMatch[0];
 
   if (
     !/class="feature-version-pills"[^>]*>[\s\S]*?class="feature-pill feature-pill-csharp"[\s\S]*?class="feature-pill feature-pill-dotnet"/.test(
-      footer
+      card
     )
   ) {
-    throw new Error("Feature card footer is missing deterministic C# and .NET version pills");
+    throw new Error("Feature card is missing deterministic C# and .NET version pills");
   }
 
-  if (!/<span class="feature-pill feature-pill-csharp">\s*C#[^<]+<\/span>/.test(footer)) {
-    throw new Error("Feature card footer is missing a C# version pill label");
+  if (!/<span class="feature-pill feature-pill-csharp">\s*C#[^<]+<\/span>/.test(card)) {
+    throw new Error("Feature card is missing a C# version pill label");
   }
 
-  if (!/<span class="feature-pill feature-pill-dotnet">\s*\.NET[^<]+<\/span>/.test(footer)) {
-    throw new Error("Feature card footer is missing a .NET version pill label");
+  if (!/<span class="feature-pill feature-pill-dotnet">\s*\.NET[^<]+<\/span>/.test(card)) {
+    throw new Error("Feature card is missing a .NET version pill label");
   }
 
   if (!/data-csharp-order="\d+"/.test(card) || !/data-dotnet-order="\d+"/.test(card)) {
