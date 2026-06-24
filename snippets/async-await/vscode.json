@@ -1,0 +1,13 @@
+{
+  "Async/Await Method": {
+    "prefix": "csasync",
+    "body": [
+      "public async Task<${1:string}> ${2:GetDataAsync}()",
+      "{",
+      "    var result = await ${3:FetchAsync()};",
+      "    return result;",
+      "}"
+    ],
+    "description": "Declare an async method using async/await (C# 5.0+)"
+  }
+}

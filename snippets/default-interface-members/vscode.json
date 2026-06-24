@@ -1,0 +1,12 @@
+{
+  "Default Interface Members": {
+    "prefix": "csdefaultimpl",
+    "body": [
+      "public interface ${1:IFormatter}",
+      "{",
+      "    string ${2:Format}(double value) => value.ToString(\"0.00\");",
+      "}"
+    ],
+    "description": "Define an interface with a default method implementation (C# 8.0+)"
+  }
+}

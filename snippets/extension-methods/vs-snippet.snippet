@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Extension Methods</Title>
+      <Shortcut>csextension</Shortcut>
+      <Description>Define a static extension method class (C# 3.0+)</Description>
+      <Author>C# Evolved</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>className</ID>
+          <ToolTip>Extension class name</ToolTip>
+          <Default>StringExtensions</Default>
+        </Literal>
+        <Literal>
+          <ID>methodName</ID>
+          <ToolTip>Extension method name</ToolTip>
+          <Default>IsNullOrEmpty</Default>
+        </Literal>
+        <Literal>
+          <ID>paramName</ID>
+          <ToolTip>Parameter name</ToolTip>
+          <Default>value</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp"><![CDATA[public static class $className$
+{
+    public static bool $methodName$(this string $paramName$) => string.IsNullOrEmpty($paramName$);
+}$end$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,11 @@
+{
+  "Global Using Directives": {
+    "prefix": "csglobalusing",
+    "body": [
+      "global using System;",
+      "global using System.Collections.Generic;",
+      "global using System.Linq;"
+    ],
+    "description": "Declare global using directives for project-wide imports (C# 10.0+)"
+  }
+}

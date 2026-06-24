@@ -1,0 +1,13 @@
+{
+  "Nullable Reference Types": {
+    "prefix": "csnullable",
+    "body": [
+      "string? ${1:name} = ${2:GetName()};",
+      "if (${1:name} is not null)",
+      "{",
+      "    Console.WriteLine(${1:name}.Length);",
+      "}"
+    ],
+    "description": "Declare and null-check a nullable reference type variable (C# 8.0+)"
+  }
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Raw String Literals</Title>
+      <Shortcut>csrawstring</Shortcut>
+      <Description>Declare a raw string literal for multi-line text (C# 11.0+)</Description>
+      <Author>C# Evolved</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>varName</ID>
+          <ToolTip>Variable name</ToolTip>
+          <Default>json</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp"><![CDATA[var $varName$ = """
+    {
+        "name": "value"
+    }
+    """;$end$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

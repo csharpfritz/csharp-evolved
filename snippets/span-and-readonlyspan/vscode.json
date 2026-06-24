@@ -1,0 +1,10 @@
+{
+  "Span and ReadOnlySpan": {
+    "prefix": "csspan",
+    "body": [
+      "ReadOnlySpan<char> ${1:text} = \"Hello, World!\".AsSpan();",
+      "ReadOnlySpan<char> ${2:hello} = ${1:text}.Slice(0, 5);"
+    ],
+    "description": "Use ReadOnlySpan for allocation-free string slicing (C# 7.2+)"
+  }
+}

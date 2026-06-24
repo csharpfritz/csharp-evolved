@@ -1,0 +1,13 @@
+{
+  "Raw String Literals": {
+    "prefix": "csrawstring",
+    "body": [
+      "var ${1:json} = \"\"\"",
+      "    {",
+      "        \"name\": \"value\"",
+      "    }",
+      "    \"\"\";"
+    ],
+    "description": "Declare a raw string literal for multi-line text (C# 11.0+)"
+  }
+}

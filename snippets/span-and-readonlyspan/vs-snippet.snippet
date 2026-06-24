@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Span and ReadOnlySpan</Title>
+      <Shortcut>csspan</Shortcut>
+      <Description>Use ReadOnlySpan for allocation-free string slicing (C# 7.2+)</Description>
+      <Author>C# Evolved</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>textVar</ID>
+          <ToolTip>Span variable name</ToolTip>
+          <Default>text</Default>
+        </Literal>
+        <Literal>
+          <ID>sliceVar</ID>
+          <ToolTip>Slice variable name</ToolTip>
+          <Default>hello</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp"><![CDATA[ReadOnlySpan<char> $textVar$ = "Hello, World!".AsSpan();
+ReadOnlySpan<char> $sliceVar$ = $textVar$.Slice(0, 5);$end$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Async/Await Method</Title>
+      <Shortcut>csasync</Shortcut>
+      <Description>Declare an async method using async/await (C# 5.0+)</Description>
+      <Author>C# Evolved</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>returnType</ID>
+          <ToolTip>Return type</ToolTip>
+          <Default>string</Default>
+        </Literal>
+        <Literal>
+          <ID>methodName</ID>
+          <ToolTip>Method name</ToolTip>
+          <Default>GetDataAsync</Default>
+        </Literal>
+        <Literal>
+          <ID>awaitedCall</ID>
+          <ToolTip>Awaited expression</ToolTip>
+          <Default>FetchAsync()</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp"><![CDATA[public async Task<$returnType$> $methodName$()
+{
+    var result = await $awaitedCall$;
+    return result;
+}$end$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

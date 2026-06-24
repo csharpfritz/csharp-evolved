@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Static Abstract Interface Members</Title>
+      <Shortcut>csstaticabstract</Shortcut>
+      <Description>Define an interface with a static abstract operator (C# 11.0+)</Description>
+      <Author>C# Evolved</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>interfaceName</ID>
+          <ToolTip>Interface name</ToolTip>
+          <Default>IAddable</Default>
+        </Literal>
+        <Literal>
+          <ID>typeName</ID>
+          <ToolTip>Type parameter name</ToolTip>
+          <Default>TSelf</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp"><![CDATA[public interface $interfaceName$<$typeName$> where $typeName$ : $interfaceName$<$typeName$>
+{
+    static abstract $typeName$ operator +($typeName$ left, $typeName$ right);
+}$end$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

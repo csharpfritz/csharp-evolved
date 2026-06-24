@@ -1,0 +1,11 @@
+{
+  "Top-Level Statements": {
+    "prefix": "cstoplevel",
+    "body": [
+      "using System;",
+      "",
+      "Console.WriteLine(\"${1:Hello, World!}\");"
+    ],
+    "description": "Write a program using top-level statements without a Main method (C# 9.0+)"
+  }
+}

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Default Interface Members</Title>
+      <Shortcut>csdefaultimpl</Shortcut>
+      <Description>Define an interface with a default method implementation (C# 8.0+)</Description>
+      <Author>C# Evolved</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>interfaceName</ID>
+          <ToolTip>Interface name</ToolTip>
+          <Default>IFormatter</Default>
+        </Literal>
+        <Literal>
+          <ID>methodName</ID>
+          <ToolTip>Method name</ToolTip>
+          <Default>Format</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp"><![CDATA[public interface $interfaceName$
+{
+    string $methodName$(double value) => value.ToString("0.00");
+}$end$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

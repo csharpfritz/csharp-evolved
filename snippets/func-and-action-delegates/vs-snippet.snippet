@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Func and Action Delegates</Title>
+      <Shortcut>csfunc</Shortcut>
+      <Description>Declare Func and Action delegate variables (C# 3.0+)</Description>
+      <Author>C# Evolved</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>funcName</ID>
+          <ToolTip>Func variable name</ToolTip>
+          <Default>add</Default>
+        </Literal>
+        <Literal>
+          <ID>actionName</ID>
+          <ToolTip>Action variable name</ToolTip>
+          <Default>print</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp"><![CDATA[Func<int, int, int> $funcName$ = (a, b) => a + b;
+Action<string> $actionName$ = message => Console.WriteLine(message);$end$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

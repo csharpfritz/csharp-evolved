@@ -1,0 +1,13 @@
+{
+  "LINQ Query": {
+    "prefix": "cslinq",
+    "body": [
+      "var ${1:results} = ${2:items}",
+      "    .Where(x => x.IsActive)",
+      "    .OrderBy(x => x.Name)",
+      "    .Select(x => x.Name)",
+      "    .ToList();"
+    ],
+    "description": "Query a collection using LINQ method syntax (C# 3.0+)"
+  }
+}

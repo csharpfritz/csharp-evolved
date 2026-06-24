@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Init Accessors</Title>
+      <Shortcut>csinit</Shortcut>
+      <Description>Declare a class with init-only property setters (C# 9.0+)</Description>
+      <Author>C# Evolved</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>className</ID>
+          <ToolTip>Class name</ToolTip>
+          <Default>Point</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp"><![CDATA[public class $className$
+{
+    public int X { get; init; }
+    public int Y { get; init; }
+}$end$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

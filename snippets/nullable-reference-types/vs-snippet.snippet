@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Nullable Reference Types</Title>
+      <Shortcut>csnullable</Shortcut>
+      <Description>Declare and null-check a nullable reference type variable (C# 8.0+)</Description>
+      <Author>C# Evolved</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>varName</ID>
+          <ToolTip>Variable name</ToolTip>
+          <Default>name</Default>
+        </Literal>
+        <Literal>
+          <ID>source</ID>
+          <ToolTip>Value source</ToolTip>
+          <Default>GetName()</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp"><![CDATA[string? $varName$ = $source$;
+if ($varName$ is not null)
+{
+    Console.WriteLine($varName$.Length);
+}$end$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

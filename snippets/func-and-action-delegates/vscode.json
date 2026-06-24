@@ -1,0 +1,10 @@
+{
+  "Func and Action Delegates": {
+    "prefix": "csfunc",
+    "body": [
+      "Func<int, int, int> ${1:add} = (a, b) => a + b;",
+      "Action<string> ${2:print} = message => Console.WriteLine(message);"
+    ],
+    "description": "Declare Func and Action delegate variables (C# 3.0+)"
+  }
+}

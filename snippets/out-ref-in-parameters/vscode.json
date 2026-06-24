@@ -1,0 +1,12 @@
+{
+  "Out Parameters (TryParse)": {
+    "prefix": "csout",
+    "body": [
+      "if (int.TryParse(${1:input}, out int ${2:value}))",
+      "{",
+      "    Console.WriteLine(${2:value});",
+      "}"
+    ],
+    "description": "Use an out parameter with TryParse (C# 7.0+)"
+  }
+}

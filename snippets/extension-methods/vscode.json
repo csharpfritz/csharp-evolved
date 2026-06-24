@@ -1,0 +1,12 @@
+{
+  "Extension Methods": {
+    "prefix": "csextension",
+    "body": [
+      "public static class ${1:StringExtensions}",
+      "{",
+      "    public static bool ${2:IsNullOrEmpty}(this string ${3:value}) => string.IsNullOrEmpty(${3:value});",
+      "}"
+    ],
+    "description": "Define a static extension method class (C# 3.0+)"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "Lambda Expressions": {
+    "prefix": "cslambda",
+    "body": [
+      "Func<int, bool> ${1:isEven} = ${2:n} => ${3:n % 2 == 0};"
+    ],
+    "description": "Declare a lambda expression using Func delegate (C# 3.0+)"
+  }
+}

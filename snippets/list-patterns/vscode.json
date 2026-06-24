@@ -1,0 +1,14 @@
+{
+  "List Patterns": {
+    "prefix": "cslistpattern",
+    "body": [
+      "string ${1:label} = ${2:values} switch",
+      "{",
+      "    [var first, ..] => $\"Starts with {first}\",",
+      "    [] => \"Empty\",",
+      "    _ => \"Other\"",
+      "};"
+    ],
+    "description": "Match sequences using list patterns in a switch expression (C# 11.0+)"
+  }
+}

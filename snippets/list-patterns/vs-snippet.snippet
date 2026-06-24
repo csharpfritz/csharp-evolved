@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>List Patterns</Title>
+      <Shortcut>cslistpattern</Shortcut>
+      <Description>Match sequences using list patterns in a switch expression (C# 11.0+)</Description>
+      <Author>C# Evolved</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>resultVar</ID>
+          <ToolTip>Result variable name</ToolTip>
+          <Default>label</Default>
+        </Literal>
+        <Literal>
+          <ID>source</ID>
+          <ToolTip>Source variable</ToolTip>
+          <Default>values</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp"><![CDATA[string $resultVar$ = $source$ switch
+{
+    [var first, ..] => $"Starts with {first}",
+    [] => "Empty",
+    _ => "Other"
+};$end$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

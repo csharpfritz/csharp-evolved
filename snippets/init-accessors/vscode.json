@@ -1,0 +1,13 @@
+{
+  "Init Accessors": {
+    "prefix": "csinit",
+    "body": [
+      "public class ${1:Point}",
+      "{",
+      "    public int X { get; init; }",
+      "    public int Y { get; init; }",
+      "}"
+    ],
+    "description": "Declare a class with init-only property setters (C# 9.0+)"
+  }
+}

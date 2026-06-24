@@ -1,0 +1,13 @@
+{
+  "File-Scoped Namespace": {
+    "prefix": "csfilenamespace",
+    "body": [
+      "namespace ${1:MyApp.Services};",
+      "",
+      "public class ${2:OrderService}",
+      "{",
+      "}"
+    ],
+    "description": "Declare a file-scoped namespace to reduce indentation (C# 10.0+)"
+  }
+}

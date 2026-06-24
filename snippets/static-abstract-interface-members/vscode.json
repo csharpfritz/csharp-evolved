@@ -1,0 +1,12 @@
+{
+  "Static Abstract Interface Members": {
+    "prefix": "csstaticabstract",
+    "body": [
+      "public interface ${1:IAddable}<${2:TSelf}> where ${2:TSelf} : ${1:IAddable}<${2:TSelf}>",
+      "{",
+      "    static abstract ${2:TSelf} operator +(${2:TSelf} left, ${2:TSelf} right);",
+      "}"
+    ],
+    "description": "Define an interface with a static abstract operator (C# 11.0+)"
+  }
+}
