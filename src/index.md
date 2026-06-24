@@ -7,8 +7,8 @@ templateEngineOverride: njk
 <section class="hero">
   <div class="hero-content">
     <h1>C# <span class="hero-accent">Evolved</span></h1>
-    <p class="lead">See how C# has grown from .NET Framework 3.5 to modern C# 13 — with version-accurate examples, editor snippets, and Roslyn analyzers to help you upgrade.</p>
-    <a href="/features/" class="hero-cta">Explore all 26 features →</a>
+    <p class="lead">See how C# has evolved — stay current with the latest, cutting-edge, and modern features. Version-accurate examples, editor snippets, and Roslyn analyzers to help you write secure, modern C#.</p>
+    <a href="/features/" class="hero-cta">Explore the features →</a>
   </div>
   <div class="hero-code">
     <div class="hero-code-before">
@@ -25,7 +25,7 @@ templateEngineOverride: njk
 <section class="grid feature-cards-grid" aria-label="Content sections">
   <article class="card">
     <h2>Language Features</h2>
-    <p>26 features from C# 3 to C# 13 — with version-accurate examples and upgrade guidance.</p>
+    <p>The latest, cutting-edge C# features — with version-accurate examples and upgrade guidance.</p>
     <a href="/features/">Explore features →</a>
   </article>
   <article class="card">
@@ -42,7 +42,7 @@ templateEngineOverride: njk
 
 <section class="spotlight-section" aria-labelledby="spotlight-heading">
   <h2 id="spotlight-heading">Where to start</h2>
-  <p class="spotlight-subtitle">Six features that define the evolution of modern C#.</p>
+  <p class="spotlight-subtitle">Essential features that define the evolution of modern C#.</p>
   <div class="spotlight-grid">
   {% for feature in spotlightFeatures %}
     <article class="card spotlight-card">

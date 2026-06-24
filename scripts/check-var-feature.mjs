@@ -88,7 +88,7 @@ const checks = [
       "<section class=\"hero\">",
       "<div class=\"hero-content\">",
       "class=\"hero-cta\"",
-      "Explore all 26 features",
+      "Explore the features",
       "<div class=\"hero-code\">",
       "<section class=\"spotlight-section\"",
       "{% for feature in spotlightFeatures %}",
