@@ -22,6 +22,10 @@ This repository now uses [Eleventy (11ty)](https://www.11ty.dev/) with a lightwe
 Each feature must be fully self-contained under `features/<slug>/`:
 
 - `feature.json` – feature metadata, version tags, examples, and markdown references.
+  - `versions.dotnet` should remain numeric (`3.5`, `3.0`, `8.0`); the site renders labels as:
+    - `NETFx` for .NET Framework versions
+    - `NETCore` for .NET Core versions
+    - `.NET` for .NET 5+
 - `content/summary.md` – short card summary.
 - `content/intro.md` – opening narrative (optional but recommended).
 - `content/sections/*.md` – primary article sections.

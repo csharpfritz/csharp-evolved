@@ -33,7 +33,7 @@ const checks = [
   },
   {
     file: "features/var/content/intro.md",
-    snippets: ["C# 3.0 (.NET 3.5)", "still static at compile time"]
+    snippets: ["C# 3.0 (NETFx 3.5)", "still static at compile time"]
   },
   {
     file: "features/var/content/newer-capabilities/target-typed-new.md",
@@ -625,8 +625,12 @@ for (const card of renderedFeatureCards) {
     throw new Error("Feature card is missing a C# version pill label");
   }
 
-  if (!/<span class="feature-pill feature-pill-dotnet">\s*\.NET[^<]+<\/span>/.test(card)) {
-    throw new Error("Feature card is missing a .NET version pill label");
+  if (
+    !/<span class="feature-pill feature-pill-dotnet">\s*(?:NETFx|NETCore|\.NET)[^<]+<\/span>/.test(
+      card
+    )
+  ) {
+    throw new Error("Feature card is missing a platform version pill label");
   }
 
   if (!/data-csharp-order="\d+"/.test(card) || !/data-dotnet-order="\d+"/.test(card)) {

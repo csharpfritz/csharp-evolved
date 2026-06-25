@@ -1,11 +1,11 @@
 ---
 title: Features
 layout: layout.njk
+templateEngineOverride: njk
 ---
 
-# C# feature map
-
-Organized starting points for content that can grow into full feature guides.
+<h1>C# feature map</h1>
+<p>Organized starting points for content that can grow into full feature guides.</p>
 
 {% set defaultTarget = "csharp" %}
 {% set defaultMode = "upToIncluding" %}
@@ -64,7 +64,13 @@ Organized starting points for content that can grow into full feature guides.
       <a href="/features/">Reset</a>
     </div>
   </div>
-  <p id="feature-filter-summary" class="feature-filter-summary" tabindex="-1"></p>
+  <p
+    id="feature-filter-summary"
+    class="feature-filter-summary"
+    tabindex="-1"
+    role="status"
+    aria-live="polite"
+  ></p>
 </section>
 
 <section class="grid feature-demos-grid" aria-label="Feature demos">

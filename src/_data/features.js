@@ -102,7 +102,37 @@ function toVersionOrder(version) {
     .reduce((order, part) => order * 100 + part, 0);
 }
 
+function getDotnetVersionBrand(dotnetVersion) {
+  const [major, minor = 0] =
+    typeof dotnetVersion === "string"
+      ? dotnetVersion.match(/\d+/g)?.map((part) => Number(part)) ?? []
+      : [];
+
+  if (major >= 5) {
+    return {
+      id: "dotnet",
+      label: ".NET",
+      order: 2
+    };
+  }
+
+  if (major === 1 || major === 2 || (major === 3 && minor <= 1)) {
+    return {
+      id: "netcore",
+      label: "NETCore",
+      order: 1
+    };
+  }
+
+  return {
+    id: "netfx",
+    label: "NETFx",
+    order: 0
+  };
+}
+
 function createVersionMeta(languageVersion, dotnetVersion) {
+  const dotnetBrand = getDotnetVersionBrand(dotnetVersion);
   return {
     csharp: {
       id: languageVersion,
@@ -111,8 +141,9 @@ function createVersionMeta(languageVersion, dotnetVersion) {
     },
     dotnet: {
       id: dotnetVersion,
-      label: `.NET ${dotnetVersion}`,
-      order: toVersionOrder(dotnetVersion)
+      family: dotnetBrand.id,
+      label: `${dotnetBrand.label} ${dotnetVersion}`,
+      order: dotnetBrand.order * 1_000_000 + toVersionOrder(dotnetVersion)
     }
   };
 }
