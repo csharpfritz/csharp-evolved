@@ -1,0 +1,1 @@
+C# 10 extends this idea with global using directives, including `global using static`, so a project can apply the import once instead of repeating it in every file. That broader scope is covered by the Global Using Directives page.

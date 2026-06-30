@@ -31,6 +31,12 @@
       "path": "content/newer-capabilities/handlers-and-raw-strings.md"
     }
   ],
+  "relatedFeatures": [
+    {
+      "slug": "raw-string-literals",
+      "reason": "Raw strings are the next stop when interpolated templates need multiline content without escape noise."
+    }
+  ],
   "learnMore": {
     "label": "String interpolation (Microsoft Learn)",
     "url": "https://learn.microsoft.com/dotnet/csharp/language-reference/tokens/interpolated"

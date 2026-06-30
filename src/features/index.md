@@ -10,11 +10,43 @@ templateEngineOverride: njk
 {% set defaultTarget = "csharp" %}
 {% set defaultMode = "upToIncluding" %}
 {% set defaultVersion = featureFilters.versions[defaultTarget][featureFilters.versions[defaultTarget].length - 1] %}
+{% set recentCsharpVersion = featureFilters.versions.csharp[featureFilters.versions.csharp.length - 4] %}
+{% set latestDotnetVersion = featureFilters.versions.dotnet[featureFilters.versions.dotnet.length - 1] %}
 
 <section class="card feature-filter-panel" aria-labelledby="feature-filter-title">
+  <h2>Explore the feature map</h2>
+  <p>
+    Search by feature name, example topic, or newer capability, then keep moving with related guides on each feature page.
+  </p>
+  <div class="grid feature-discovery-grid" aria-label="Feature discovery highlights">
+    <article class="card">
+      <h3>Find recent language additions</h3>
+      <p>
+        Jump straight to the newest additions after {{ recentCsharpVersion.label }} when you want a modern-C# skim.
+      </p>
+      <p>
+        <a href="/features/?target=csharp&mode=after&version={{ recentCsharpVersion.id }}">See what came next →</a>
+      </p>
+    </article>
+    <article class="card">
+      <h3>Browse by runtime era</h3>
+      <p>
+        Switch to .NET filtering when you want to anchor guides to the runtime your team is shipping today.
+      </p>
+      <p>
+        <a href="/features/?target=dotnet&mode=upToIncluding&version={{ latestDotnetVersion.id }}">Browse by .NET version →</a>
+      </p>
+    </article>
+    <article class="card">
+      <h3>Follow connected guides</h3>
+      <p>
+        Feature guides now link to adjacent topics so you can move from an overview into nearby language changes without restarting your search.
+      </p>
+    </article>
+  </div>
   <h2 id="feature-filter-title">Filter features by version</h2>
   <p class="feature-filter-help">
-    Pick a version family and view either everything up to that version or only features added after it.
+    Pick a version family and view either everything up to that version or only features added after it. Search also matches example topics and newer capability notes.
   </p>
   <div id="feature-filter-form">
     <div class="feature-filter-grid">
@@ -55,7 +87,7 @@ templateEngineOverride: njk
           id="search"
           name="search"
           type="search"
-          placeholder="Search feature title or summary"
+          placeholder="Search feature title, summary, or examples"
           autocomplete="off"
         />
       </div>
@@ -79,7 +111,7 @@ templateEngineOverride: njk
   class="card feature-card feature-demo-card"
   data-csharp-order="{{ feature.versions.csharp.order }}"
   data-dotnet-order="{{ feature.versions.dotnet.order }}"
-  data-search-text="{{ (feature.title + ' ' + feature.summary) | lower | escape }}"
+  data-search-text="{{ feature.searchText | lower | escape }}"
 >
   <header class="feature-demo-header">
     <h2><a href="/features/{{ feature.slug }}/">{{ feature.title }}</a></h2>
@@ -89,6 +121,14 @@ templateEngineOverride: njk
     </p>
   </header>
   <p class="feature-card-summary">{{ feature.summary }}</p>
+  {% if feature.relatedFeatures and feature.relatedFeatures.length %}
+    <p class="feature-card-related">
+      <strong>Related:</strong>
+      {% for relatedFeature in feature.relatedFeatures %}
+        <a href="{{ relatedFeature.url }}">{{ relatedFeature.title }}</a>{% if not loop.last %}, {% endif %}
+      {% endfor %}
+    </p>
+  {% endif %}
 
   {% for example in feature.examples %}
     <section class="feature-demo-example">

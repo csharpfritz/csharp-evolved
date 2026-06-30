@@ -1,0 +1,54 @@
+{
+  "slug": "ref-structs",
+  "title": "ref structs",
+  "shortTitle": "ref struct",
+  "versions": {
+    "csharp": "7.2",
+    "dotnet": "2.1"
+  },
+  "summary": "content/summary.md",
+  "intro": {
+    "path": "content/intro.md"
+  },
+  "sections": [
+    {
+      "title": "Why it matters",
+      "path": "content/sections/why-it-matters.md"
+    },
+    {
+      "title": "Cautions",
+      "path": "content/sections/cautions.md"
+    }
+  ],
+  "newerCapabilities": [
+    {
+      "title": "ref fields inside ref structs",
+      "csharpVersion": "11.0",
+      "path": "content/newer-capabilities/ref-fields.md"
+    }
+  ],
+  "learnMore": {
+    "label": "ref structure types (Microsoft Learn)",
+    "url": "https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/ref-struct"
+  },
+  "examples": [
+    {
+      "id": "span-backed-reader",
+      "title": "Build a small parser over a span",
+      "description": "A `ref struct` can safely hold `ReadOnlySpan<T>` state while it walks in-place data without allocating substrings.",
+      "sampleLanguageVersion": "7.2",
+      "snippets": {
+        "code": "ref-structs/csv-field-reader.cs"
+      }
+    },
+    {
+      "id": "stackalloc-scratch-buffer",
+      "title": "Wrap stackalloc memory in a focused helper",
+      "description": "`ref struct` helpers are a natural way to keep stack-only buffers together with the operations that use them.",
+      "sampleLanguageVersion": "7.2",
+      "snippets": {
+        "code": "ref-structs/ascii-scratch-buffer.cs"
+      }
+    }
+  ]
+}

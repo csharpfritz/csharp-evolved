@@ -20,6 +20,16 @@
       "path": "content/sections/cautions.md"
     }
   ],
+  "relatedFeatures": [
+    {
+      "slug": "records",
+      "reason": "Records often rely on init accessors to keep immutable data easy to construct."
+    },
+    {
+      "slug": "required-members",
+      "reason": "Required members extend init-only patterns when some values must always be provided by callers."
+    }
+  ],
   "learnMore": {
     "label": "init accessors (Microsoft Learn)",
     "url": "https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/init"

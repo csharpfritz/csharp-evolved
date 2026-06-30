@@ -1,0 +1,54 @@
+{
+  "slug": "using-static-directives",
+  "title": "Using static directives",
+  "shortTitle": "using static",
+  "versions": {
+    "csharp": "6.0",
+    "dotnet": "4.6"
+  },
+  "summary": "content/summary.md",
+  "intro": {
+    "path": "content/intro.md"
+  },
+  "sections": [
+    {
+      "title": "Why it matters",
+      "path": "content/sections/why-it-matters.md"
+    },
+    {
+      "title": "Cautions",
+      "path": "content/sections/cautions.md"
+    }
+  ],
+  "newerCapabilities": [
+    {
+      "title": "Global static using",
+      "csharpVersion": "10.0",
+      "path": "content/newer-capabilities/global-static-using.md"
+    }
+  ],
+  "learnMore": {
+    "label": "using directive (Microsoft Learn)",
+    "url": "https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/using-directive"
+  },
+  "examples": [
+    {
+      "id": "math-formulas",
+      "title": "Clean up dense math expressions",
+      "description": "`using static` can make formulas and constant-heavy code easier to scan when the containing type is obvious from context.",
+      "sampleLanguageVersion": "6.0",
+      "snippets": {
+        "code": "using-static-directives/math-formula.cs"
+      }
+    },
+    {
+      "id": "domain-helper-import",
+      "title": "Import a focused helper API",
+      "description": "The feature also works with your own static helper classes, which can make validation or DSL-like code read more naturally.",
+      "sampleLanguageVersion": "6.0",
+      "snippets": {
+        "code": "using-static-directives/domain-helpers.cs"
+      }
+    }
+  ]
+}

@@ -193,7 +193,57 @@ function normalizeNewerCapabilities(capabilities, featureRoot) {
     );
 }
 
-module.exports = readFeatureManifests().map(({ manifest: entry, featureRoot }) => {
+function normalizeRelatedFeatures(relatedFeatures) {
+  if (!Array.isArray(relatedFeatures)) {
+    return [];
+  }
+
+  return relatedFeatures
+    .map((relatedFeature) => {
+      if (typeof relatedFeature === "string") {
+        return {
+          slug: relatedFeature
+        };
+      }
+
+      if (
+        relatedFeature &&
+        typeof relatedFeature === "object" &&
+        typeof relatedFeature.slug === "string"
+      ) {
+        return {
+          slug: relatedFeature.slug,
+          title: relatedFeature.title,
+          reason: relatedFeature.reason
+        };
+      }
+
+      return null;
+    })
+    .filter(Boolean);
+}
+
+function createSearchText(feature) {
+  return [
+    feature.title,
+    feature.shortTitle,
+    feature.summary,
+    ...feature.sections.map((section) => section.title),
+    ...feature.examples.flatMap((example) => [
+      example.title,
+      example.description,
+      example.newerCapabilityNote
+    ]),
+    ...feature.newerCapabilities.flatMap((capability) => [
+      capability.title,
+      capability.markdown
+    ])
+  ]
+    .filter((value) => typeof value === "string" && value.trim())
+    .join(" ");
+}
+
+const features = readFeatureManifests().map(({ manifest: entry, featureRoot }) => {
   const examples = (entry.examples || []).map((example) => {
     const normalized = {
       id: example.id,
@@ -217,6 +267,7 @@ module.exports = readFeatureManifests().map(({ manifest: entry, featureRoot }) =
     slug: entry.slug,
     title: entry.title,
     shortTitle: entry.shortTitle,
+    url: `/features/${entry.slug}/`,
     shuffleOrder: toDeterministicShuffleOrder(entry.slug ?? entry.title),
     versions: createVersionMeta(entry.versions.csharp, entry.versions.dotnet),
     summary: resolveMarkdownReference(entry.summary, featureRoot),
@@ -228,8 +279,46 @@ module.exports = readFeatureManifests().map(({ manifest: entry, featureRoot }) =
       entry.newerCapabilities,
       featureRoot
     ),
+    relatedFeatureRefs: normalizeRelatedFeatures(
+      entry.relatedFeatures ?? entry.related
+    ),
     learnMoreUrl: entry.learnMore?.url,
     learnMore: entry.learnMore,
     examples
+  };
+});
+
+const featuresBySlug = new Map(features.map((feature) => [feature.slug, feature]));
+
+module.exports = features.map((feature) => {
+  const seenRelated = new Set();
+  const relatedFeatures = feature.relatedFeatureRefs
+    .map((reference) => {
+      const relatedFeature = featuresBySlug.get(reference.slug);
+      if (!relatedFeature || relatedFeature.slug === feature.slug) {
+        return null;
+      }
+
+      if (seenRelated.has(relatedFeature.slug)) {
+        return null;
+      }
+      seenRelated.add(relatedFeature.slug);
+
+      return {
+        slug: relatedFeature.slug,
+        title: reference.title || relatedFeature.shortTitle || relatedFeature.title,
+        shortTitle: relatedFeature.shortTitle,
+        summary: relatedFeature.summary,
+        url: relatedFeature.url,
+        versions: relatedFeature.versions,
+        reason: reference.reason
+      };
+    })
+    .filter(Boolean);
+
+  return {
+    ...feature,
+    relatedFeatures,
+    searchText: createSearchText(feature)
   };
 });
