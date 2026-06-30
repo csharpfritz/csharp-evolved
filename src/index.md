@@ -7,8 +7,11 @@ templateEngineOverride: njk
 <section class="hero">
   <div class="hero-content">
     <h1>C# <span class="hero-accent">Evolved</span></h1>
-    <p class="lead">See how C# has evolved — stay current with the latest, cutting-edge, and modern features. Version-accurate examples, editor snippets, and Roslyn analyzers to help you write secure, modern C#.</p>
-    <a href="/features/" class="hero-cta">Explore the features →</a>
+    <p class="lead">See how C# has evolved — then move through the feature map with version filters, full guides, and related-feature trails that keep discovery moving.</p>
+    <div class="hero-actions">
+      <a href="/features/" class="hero-cta">Explore the features →</a>
+      <a href="/features/?target=csharp&mode=after&version=9.0" class="hero-cta hero-cta-secondary">See recent additions →</a>
+    </div>
   </div>
   <div class="hero-code">
     <div class="hero-code-before">
@@ -24,9 +27,14 @@ templateEngineOverride: njk
 
 <section class="grid feature-cards-grid" aria-label="Content sections">
   <article class="card">
-    <h2>Language Features</h2>
-    <p>The latest, cutting-edge C# features — with version-accurate examples and upgrade guidance.</p>
+    <h2>Feature map</h2>
+    <p>Search by syntax, filter by C# or .NET version, and branch into related guides without losing your place.</p>
     <a href="/features/">Explore features →</a>
+  </article>
+  <article class="card">
+    <h2>Recent additions</h2>
+    <p>Start with newer language additions first, then use related-feature links to work backward into the foundations they build on.</p>
+    <a href="/features/?target=csharp&mode=after&version=9.0">See recent additions →</a>
   </article>
   <article class="card">
     <h2>Cloud-first Architecture</h2>
@@ -47,7 +55,7 @@ templateEngineOverride: njk
 
 {% if spotlightFeatures and spotlightFeatures.length %}
 <h2>Featured demos</h2>
-<p>Explore a curated set of full source demos, then dive deeper on the features page.</p>
+<p>Explore a curated set of full source demos, then use each guide’s related features to keep moving through the language.</p>
 
 <section class="grid feature-snippet-grid home-feature-snippet-grid" aria-label="Feature demos">
 {% for feature in spotlightFeatures %}

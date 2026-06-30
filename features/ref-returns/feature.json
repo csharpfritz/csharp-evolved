@@ -1,0 +1,54 @@
+{
+  "slug": "ref-returns",
+  "title": "ref returns",
+  "shortTitle": "ref returns",
+  "versions": {
+    "csharp": "7.0",
+    "dotnet": "4.7"
+  },
+  "summary": "content/summary.md",
+  "intro": {
+    "path": "content/intro.md"
+  },
+  "sections": [
+    {
+      "title": "Why it matters",
+      "path": "content/sections/why-it-matters.md"
+    },
+    {
+      "title": "Cautions",
+      "path": "content/sections/cautions.md"
+    }
+  ],
+  "newerCapabilities": [
+    {
+      "title": "ref readonly returns",
+      "csharpVersion": "7.2",
+      "path": "content/newer-capabilities/ref-readonly-returns.md"
+    }
+  ],
+  "learnMore": {
+    "label": "Method parameters and ref returns (Microsoft Learn)",
+    "url": "https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/method-parameters#ref-return-values"
+  },
+  "examples": [
+    {
+      "id": "update-largest-item",
+      "title": "Return the storage slot instead of a copy",
+      "description": "A ref return lets the caller update the original array element without searching twice or copying values around.",
+      "sampleLanguageVersion": "7.0",
+      "snippets": {
+        "code": "ref-returns/find-largest-slot.cs"
+      }
+    },
+    {
+      "id": "ref-returning-indexer",
+      "title": "Expose an in-place update path from a type",
+      "description": "Types that own arrays or buffers can offer targeted mutation without exposing the whole storage implementation.",
+      "sampleLanguageVersion": "7.0",
+      "snippets": {
+        "code": "ref-returns/ref-indexer.cs"
+      }
+    }
+  ]
+}

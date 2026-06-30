@@ -1,0 +1,47 @@
+{
+  "slug": "exception-filters",
+  "title": "Exception filters",
+  "shortTitle": "Exception filters",
+  "versions": {
+    "csharp": "6.0",
+    "dotnet": "4.6"
+  },
+  "summary": "content/summary.md",
+  "intro": {
+    "path": "content/intro.md"
+  },
+  "sections": [
+    {
+      "title": "Why it matters",
+      "path": "content/sections/why-it-matters.md"
+    },
+    {
+      "title": "Cautions",
+      "path": "content/sections/cautions.md"
+    }
+  ],
+  "learnMore": {
+    "label": "Exception handling statements (Microsoft Learn)",
+    "url": "https://learn.microsoft.com/dotnet/csharp/language-reference/statements/exception-handling-statements"
+  },
+  "examples": [
+    {
+      "id": "handle-specific-status",
+      "title": "Catch only the cases you can recover from",
+      "description": "A `when` clause keeps the recovery path narrow instead of over-catching and branching inside the handler.",
+      "sampleLanguageVersion": "6.0",
+      "snippets": {
+        "code": "exception-filters/recoverable-api-error.cs"
+      }
+    },
+    {
+      "id": "log-without-swallowing",
+      "title": "Log during the filter and keep bubbling",
+      "description": "Filters can record context before the runtime commits to a handler, letting the original exception continue upward unchanged.",
+      "sampleLanguageVersion": "6.0",
+      "snippets": {
+        "code": "exception-filters/log-and-rethrow.cs"
+      }
+    }
+  ]
+}

@@ -20,6 +20,20 @@
       "path": "content/sections/cautions.md"
     }
   ],
+  "relatedFeatures": [
+    {
+      "slug": "init-accessors",
+      "reason": "Pair records with init-only setters when you want immutable models that still work well with object initializers."
+    },
+    {
+      "slug": "required-members",
+      "reason": "Required members build on record-style modeling by enforcing complete initialization at compile time."
+    },
+    {
+      "slug": "primary-constructors",
+      "reason": "Primary constructors continue the move toward concise data-focused type declarations in newer C# versions."
+    }
+  ],
   "learnMore": {
     "label": "Record types (Microsoft Learn)",
     "url": "https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/record"

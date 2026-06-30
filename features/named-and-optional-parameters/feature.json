@@ -1,0 +1,48 @@
+{
+  "slug": "named-and-optional-parameters",
+  "title": "Named and optional parameters",
+  "shortTitle": "Named / optional params",
+  "versions": {
+    "csharp": "4.0",
+    "dotnet": "4.5"
+  },
+  "summary": "content/summary.md",
+  "intro": {
+    "path": "content/intro.md"
+  },
+  "sections": [
+    {
+      "title": "Why it matters",
+      "path": "content/sections/why-it-matters.md"
+    },
+    {
+      "title": "Cautions",
+      "path": "content/sections/cautions.md"
+    }
+  ],
+  "learnMore": {
+    "label": "Named and optional arguments (Microsoft Learn)",
+    "url": "https://learn.microsoft.com/dotnet/csharp/programming-guide/classes-and-structs/named-and-optional-arguments"
+  },
+  "examples": [
+    {
+      "id": "readable-call-site",
+      "title": "Make multi-flag calls readable",
+      "description": "Named arguments remove guesswork when a method has several parameters of the same shape or a few optional switches.",
+      "sampleLanguageVersion": "4.0",
+      "snippets": {
+        "before": "named-and-optional-parameters/notification-service-before.cs",
+        "after": "named-and-optional-parameters/notification-service-after.cs"
+      }
+    },
+    {
+      "id": "optional-parameter-defaults",
+      "title": "Trim overloads with optional defaults",
+      "description": "Optional parameters let one method cover the common path while still allowing targeted customization.",
+      "sampleLanguageVersion": "4.0",
+      "snippets": {
+        "code": "named-and-optional-parameters/invoice-summary.cs"
+      }
+    }
+  ]
+}

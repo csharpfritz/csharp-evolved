@@ -1,0 +1,58 @@
+{
+  "slug": "attributes-and-reflection",
+  "title": "Attributes and reflection",
+  "shortTitle": "Attributes / reflection",
+  "versions": {
+    "csharp": "1.0",
+    "dotnet": "4.5"
+  },
+  "summary": "content/summary.md",
+  "intro": {
+    "path": "content/intro.md"
+  },
+  "sections": [
+    {
+      "title": "Why it matters",
+      "path": "content/sections/why-it-matters.md"
+    },
+    {
+      "title": "Practical usage",
+      "path": "content/sections/practical-usage.md"
+    },
+    {
+      "title": "Cautions",
+      "path": "content/sections/cautions.md"
+    }
+  ],
+  "newerCapabilities": [
+    {
+      "title": "Generic attributes",
+      "csharpVersion": "11.0",
+      "path": "content/newer-capabilities/generic-attributes.md"
+    }
+  ],
+  "learnMore": {
+    "label": "Attributes overview (Microsoft Learn)",
+    "url": "https://learn.microsoft.com/dotnet/csharp/advanced-topics/reflection-and-attributes/"
+  },
+  "examples": [
+    {
+      "id": "discover-annotated-types",
+      "title": "Discover handlers marked with a custom attribute",
+      "description": "Attributes give you a simple opt-in marker, and reflection can build a registry once at startup.",
+      "sampleLanguageVersion": "3.0",
+      "snippets": {
+        "code": "attributes-and-reflection/discover-job-handlers.cs"
+      }
+    },
+    {
+      "id": "read-property-metadata",
+      "title": "Generate help text from property attributes",
+      "description": "Reflection is often most useful when it turns static metadata into a small runtime experience such as docs, help, or validation messages.",
+      "sampleLanguageVersion": "3.0",
+      "snippets": {
+        "code": "attributes-and-reflection/settings-help-text.cs"
+      }
+    }
+  ]
+}

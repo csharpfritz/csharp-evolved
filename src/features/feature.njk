@@ -10,7 +10,12 @@ eleventyComputed:
 ---
 
 <nav aria-label="Breadcrumb">
-  <p><a href="/features/">← Back to all features</a></p>
+  <ol class="breadcrumb-list">
+    <li><a href="/">Home</a></li>
+    <li><a href="/features/">Features</a></li>
+    <li aria-current="page">{{ feature.shortTitle or feature.title }}</li>
+  </ol>
+  <p class="breadcrumb-back-link"><a href="/features/">← Back to all features</a></p>
 </nav>
 
 <article>
@@ -74,6 +79,27 @@ eleventyComputed:
       {% endif %}
     </section>
   {% endfor %}
+
+  {% if feature.relatedFeatures and feature.relatedFeatures.length %}
+    <section aria-labelledby="related-features-heading">
+      <h2 id="related-features-heading">Related features</h2>
+      <div class="grid feature-related-grid">
+        {% for relatedFeature in feature.relatedFeatures %}
+          <article class="card feature-related-card">
+            <h3><a href="{{ relatedFeature.url }}">{{ relatedFeature.title }}</a></h3>
+            <p class="feature-version-pills" aria-label="Version support">
+              <span class="feature-pill feature-pill-csharp">{{ relatedFeature.versions.csharp.label }}</span>
+              <span class="feature-pill feature-pill-dotnet">{{ relatedFeature.versions.dotnet.label }}</span>
+            </p>
+            {% if relatedFeature.reason %}
+              <p class="feature-related-reason">{{ relatedFeature.reason }}</p>
+            {% endif %}
+            <p class="feature-related-summary">{{ relatedFeature.summary | renderMarkdownInline | safe }}</p>
+          </article>
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
 
   <h2>Learn more</h2>
   <p>

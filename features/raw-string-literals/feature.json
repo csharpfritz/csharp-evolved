@@ -20,6 +20,12 @@
       "path": "content/sections/cautions.md"
     }
   ],
+  "relatedFeatures": [
+    {
+      "slug": "string-interpolation",
+      "reason": "Start with interpolation basics, then move here when embedded JSON, SQL, or templates need cleaner multiline syntax."
+    }
+  ],
   "learnMore": {
     "label": "Raw String Literals (Microsoft Learn)",
     "url": "https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/reference-types#string-literals"
